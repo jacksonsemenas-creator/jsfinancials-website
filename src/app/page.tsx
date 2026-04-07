@@ -67,7 +67,7 @@ const products = [
       "Cross-asset macro frameworks",
       "Applied trading strategies",
     ],
-    href: "https://shop.jsfinancials.com.au/products/jsf-macroeconomics-for-financial-markets-trading",
+    href: "/products/macro-course",
     cta: "Enrol Now",
   },
   {
@@ -82,7 +82,7 @@ const products = [
       "Cross-asset positioning insights",
       "Central bank watch & rate expectations",
     ],
-    href: "https://shop.jsfinancials.com.au/products/jsf-weekly-macroeconomic-fx-reports",
+    href: "/products/daily-reports",
     cta: "Subscribe",
   },
   {
@@ -97,7 +97,7 @@ const products = [
       "Risk management frameworks",
       "Live market application",
     ],
-    href: "https://shop.jsfinancials.com.au/products/1-on-1-mentorship-jsf",
+    href: "/products/mentorship",
     cta: "Join Now",
   },
   {
@@ -321,14 +321,23 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={product.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-4 py-2.5 bg-navy hover:bg-navy-light text-white text-sm font-semibold rounded-lg transition-colors w-full"
-                >
-                  {product.cta}
-                </a>
+                {product.href.startsWith("/") ? (
+                  <Link
+                    href={product.href}
+                    className="inline-flex items-center justify-center px-4 py-2.5 bg-navy hover:bg-navy-light text-white text-sm font-semibold rounded-lg transition-colors w-full"
+                  >
+                    {product.cta}
+                  </Link>
+                ) : (
+                  <a
+                    href={product.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-4 py-2.5 bg-navy hover:bg-navy-light text-white text-sm font-semibold rounded-lg transition-colors w-full"
+                  >
+                    {product.cta}
+                  </a>
+                )}
               </motion.div>
             ))}
           </motion.div>

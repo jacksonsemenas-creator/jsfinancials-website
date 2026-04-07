@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import FaqAccordion from "@/components/FaqAccordion";
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ const products = [
       "Applied macro trading strategies with real examples",
       "Self-paced, lifetime access to all materials",
     ],
-    href: "https://shop.jsfinancials.com.au/products/jsf-macroeconomics-for-financial-markets-trading",
+    href: "/products/macro-course",
     cta: "Enrol Now",
     highlight: false,
   },
@@ -42,7 +43,7 @@ const products = [
       "Weekly deep-dive research notes",
       "Delivered to your inbox every day",
     ],
-    href: "https://shop.jsfinancials.com.au/products/jsf-weekly-macroeconomic-fx-reports",
+    href: "/products/daily-reports",
     cta: "Subscribe",
     highlight: false,
   },
@@ -62,7 +63,7 @@ const products = [
       "Ongoing support throughout the program",
       "12 month trading plan included at the end of the initial 12 weeks",
     ],
-    href: "https://shop.jsfinancials.com.au/products/1-on-1-mentorship-jsf",
+    href: "/products/mentorship",
     cta: "Join Now",
     highlight: true,
   },
@@ -161,18 +162,31 @@ export default function ProductsPage() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={product.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg transition-colors w-full ${
-                    product.highlight
-                      ? "bg-gold hover:bg-gold-light text-navy"
-                      : "bg-navy hover:bg-navy-light text-white"
-                  }`}
-                >
-                  {product.cta}
-                </a>
+                {product.href.startsWith("/") ? (
+                  <Link
+                    href={product.href}
+                    className={`inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg transition-colors w-full ${
+                      product.highlight
+                        ? "bg-gold hover:bg-gold-light text-navy"
+                        : "bg-navy hover:bg-navy-light text-white"
+                    }`}
+                  >
+                    {product.cta}
+                  </Link>
+                ) : (
+                  <a
+                    href={product.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg transition-colors w-full ${
+                      product.highlight
+                        ? "bg-gold hover:bg-gold-light text-navy"
+                        : "bg-navy hover:bg-navy-light text-white"
+                    }`}
+                  >
+                    {product.cta}
+                  </a>
+                )}
               </div>
             ))}
           </div>
