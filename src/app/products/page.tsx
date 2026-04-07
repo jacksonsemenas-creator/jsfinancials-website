@@ -55,7 +55,7 @@ const products = [
     description:
       "A personalised 12-week intensive program tailored to your goals. Covers quantitative methods, model development, risk management, and live market application, all with direct access to Jackson.",
     features: [
-      "Weekly 1-on-1 video sessions with Jackson",
+      "3x 1-on-1 video sessions per week with Jackson",
       "Personalised curriculum based on your level",
       "Hands-on model development & backtesting",
       "Risk management & portfolio construction",

@@ -92,7 +92,7 @@ const products = [
     description:
       "Personalised 12-week program covering quantitative methods, model development, risk management, and live market application.",
     features: [
-      "Weekly 1-on-1 sessions",
+      "3x 1-on-1 sessions per week",
       "Custom model development",
       "Risk management frameworks",
       "Live market application",
