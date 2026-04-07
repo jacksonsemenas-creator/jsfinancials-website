@@ -3,6 +3,7 @@ import { Inter, Barlow, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -21,6 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jsfinancials.com.au"),
   title: {
     default: "JS Financials | Quantitative Trading & Macroeconomic Research",
     template: "%s | JS Financials",
@@ -35,6 +37,31 @@ export const metadata: Metadata = {
     "financial markets",
     "quant research",
   ],
+  openGraph: {
+    title: "JS Financials | Quantitative Trading & Macroeconomic Research",
+    description:
+      "Institutional-grade quantitative trading education and macroeconomic research by Jackson Semenas.",
+    url: "https://jsfinancials.com.au",
+    siteName: "JS Financials",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "JS Financials — Algorithmic Trading, Macroeconomic Research",
+      },
+    ],
+    locale: "en_AU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JS Financials | Quantitative Trading & Macroeconomic Research",
+    description:
+      "Institutional-grade quantitative trading education and macroeconomic research by Jackson Semenas.",
+    images: ["/images/og-image.jpg"],
+    creator: "@jacksonsemenas",
+  },
 };
 
 export default function RootLayout({
@@ -51,6 +78,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1 pt-16">{children}</main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );

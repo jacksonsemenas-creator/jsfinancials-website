@@ -98,6 +98,14 @@ export default function AboutPage() {
                   real research, not hype.
                 </p>
               </div>
+              <a
+                href="https://calendly.com/jsfinancialsaustralia/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center mt-6 px-6 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors"
+              >
+                Book a 30-Min Call
+              </a>
             </div>
             <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
               <Image

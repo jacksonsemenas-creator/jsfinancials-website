@@ -134,9 +134,34 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={state.submitting}
-                    className="w-full px-6 py-3 bg-navy hover:bg-navy-light text-white font-semibold rounded-lg transition-colors disabled:opacity-50"
+                    className="w-full px-6 py-3 bg-navy hover:bg-navy-light text-white font-semibold rounded-lg transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
                   >
-                    {state.submitting ? "Sending..." : "Send Message"}
+                    {state.submitting ? (
+                      <>
+                        <svg
+                          className="w-4 h-4 animate-spin"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          />
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                          />
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      "Send Message"
+                    )}
                   </button>
                 </form>
               )}
@@ -147,10 +172,18 @@ export default function ContactPage() {
               <h2 className="font-heading text-2xl font-bold text-navy mb-6">
                 Connect
               </h2>
-              <p className="text-gray-600 text-sm mb-8 leading-relaxed">
+              <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                 Follow JS Financials across social media for daily macro
                 insights, model updates, and trading content.
               </p>
+              <a
+                href="https://calendly.com/jsfinancialsaustralia/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors mb-8"
+              >
+                Book a 30-Min Call
+              </a>
               <div className="space-y-4">
                 {socials.map((social) => (
                   <a

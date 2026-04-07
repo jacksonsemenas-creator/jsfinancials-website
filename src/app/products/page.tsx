@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import FaqAccordion from "@/components/FaqAccordion";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -22,7 +23,7 @@ const products = [
       "Applied macro trading strategies with real examples",
       "Self-paced, lifetime access to all materials",
     ],
-    href: "https://wqe1td-iv.myshopify.com/products/jsf-macroeconomics-for-financial-markets-trading",
+    href: "https://shop.jsfinancials.com.au/products/jsf-macroeconomics-for-financial-markets-trading",
     cta: "Enrol Now",
     highlight: false,
   },
@@ -41,7 +42,7 @@ const products = [
       "Weekly deep-dive research notes",
       "Delivered to your inbox every day",
     ],
-    href: "https://wqe1td-iv.myshopify.com/products/jsf-daily-macroeconomic-reports",
+    href: "https://shop.jsfinancials.com.au/products/jsf-weekly-macroeconomic-fx-reports",
     cta: "Subscribe",
     highlight: false,
   },
@@ -61,7 +62,7 @@ const products = [
       "Ongoing support throughout the program",
       "12 month trading plan included at the end of the initial 12 weeks",
     ],
-    href: "https://wqe1td-iv.myshopify.com/products/jsf-1-on-1-mentorship-12-week-trading-curriculum",
+    href: "https://shop.jsfinancials.com.au/products/1-on-1-mentorship-jsf",
     cta: "Join Now",
     highlight: true,
   },
@@ -178,41 +179,34 @@ export default function ProductsPage() {
         </div>
       </section>
 
+      {/* Book a Call CTA */}
+      <section className="bg-navy py-14">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white mb-3">
+            Not Sure Which Product Is Right for You?
+          </h2>
+          <p className="text-gray-300 mb-6">
+            Book a free 30-minute call with Jackson to discuss your goals and
+            find the best fit for your trading journey.
+          </p>
+          <a
+            href="https://calendly.com/jsfinancialsaustralia/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors"
+          >
+            Book a 30-Min Call
+          </a>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="bg-white py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-heading text-3xl font-bold text-navy text-center mb-12">
             Frequently Asked Questions
           </h2>
-          <div className="space-y-6">
-            {[
-              {
-                q: "Who are these products for?",
-                a: "Anyone serious about understanding how financial markets actually work, from aspiring quant traders to experienced discretionary traders looking to add systematic, data-driven methods to their toolkit.",
-              },
-              {
-                q: "Do I need coding experience?",
-                a: "No, everything is tailored to your experience and skillset.",
-              },
-              {
-                q: "What makes this different from other trading education?",
-                a: "This isn't generic retail trading content. The research and models are built on the same quantitative methods and macroeconomic frameworks used by institutional desks. Everything is backed by data, not hype.",
-              },
-              {
-                q: "Can I cancel the subscriptions?",
-                a: "Yes, both the Daily Reports and Discord subscriptions can be cancelled at any time with no lock-in commitment.",
-              },
-            ].map((faq) => (
-              <div key={faq.q} className="border-b border-gray-100 pb-6">
-                <h3 className="font-heading font-semibold text-navy mb-2">
-                  {faq.q}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {faq.a}
-                </p>
-              </div>
-            ))}
-          </div>
+          <FaqAccordion />
         </div>
       </section>
     </>
