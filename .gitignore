@@ -43,3 +43,9 @@ next-env.d.ts
 # generated files
 *.pdf
 generate-pdf.mjs
+
+# original unoptimized images
+public/images/*-original.*
+
+# stray build cache
+public/images/.next/

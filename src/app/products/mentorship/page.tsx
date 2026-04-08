@@ -123,7 +123,7 @@ export default function MentorshipPage() {
             </div>
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://shop.jsfinancials.com.au/products/1-on-1-mentorship-jsf"
+                href="https://buy.stripe.com/8x29AVaiDasz59mdo06J202"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-8 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors"
@@ -251,7 +251,7 @@ export default function MentorshipPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://shop.jsfinancials.com.au/products/1-on-1-mentorship-jsf"
+              href="https://buy.stripe.com/8x29AVaiDasz59mdo06J202"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors"
