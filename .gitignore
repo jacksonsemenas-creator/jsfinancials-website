@@ -41,8 +41,10 @@ yarn-error.log*
 next-env.d.ts
 
 # generated files
-*.pdf
 generate-pdf.mjs
+
+# allow course PDFs in public/files, ignore others
+/*.pdf
 
 # original unoptimized images
 public/images/*-original.*
