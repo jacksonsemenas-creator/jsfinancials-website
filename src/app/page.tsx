@@ -72,7 +72,7 @@ const products = [
   },
   {
     title: "Daily Macroeconomic Reports",
-    price: "$39.99",
+    price: "$29.99",
     period: "/month",
     description:
       "Institutional-quality daily macro briefings covering global markets, economic data releases, and actionable trading insights.",
@@ -99,6 +99,21 @@ const products = [
     ],
     href: "/products/mentorship",
     cta: "Join Now",
+  },
+  {
+    title: "6-Month Trading Bootcamp",
+    price: "$6,000",
+    period: "one-time",
+    description:
+      "The most intensive program. 6 months of 3x weekly calls, video series, daily macro reports, model walkthroughs, and a fully built trading model.",
+    features: [
+      "3x calls/week for 6 months",
+      "Full video series included",
+      "Daily macro reports included",
+      "Build a validated model together",
+    ],
+    href: "/products/bootcamp",
+    cta: "Enrol Now",
   },
   {
     title: "Quantitative Trading Discord",
@@ -291,8 +306,8 @@ export default function Home() {
                   </span>
                   <span className="text-gray-500 text-sm ml-1">
                     {product.period === "one-time"
-                      ? " AUD"
-                      : ` AUD${product.period}`}
+                      ? " USD"
+                      : ` USD${product.period}`}
                   </span>
                 </div>
                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">

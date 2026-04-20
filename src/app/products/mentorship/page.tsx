@@ -102,7 +102,7 @@ export default function MentorshipPage() {
             <div className="flex flex-wrap items-center gap-6 mb-8">
               <div>
                 <span className="text-4xl font-bold text-white">$3,000</span>
-                <span className="text-gray-400 ml-2">AUD one-time</span>
+                <span className="text-gray-400 ml-2">USD one-time</span>
               </div>
               <div className="flex items-center gap-2 text-gold text-sm">
                 <svg
@@ -256,7 +256,7 @@ export default function MentorshipPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors"
             >
-              Join Now — $3,000 AUD
+              Join Now — $3,000 USD
             </a>
             <a
               href="https://calendly.com/jsfinancialsaustralia/30min"

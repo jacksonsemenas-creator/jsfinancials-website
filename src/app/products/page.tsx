@@ -12,7 +12,7 @@ const products = [
   {
     title: "JSF Macroeconomics for Financial Markets & Trading",
     price: "$199",
-    period: "AUD one-time",
+    period: "USD one-time",
     type: "Course",
     description:
       "A comprehensive course designed to teach you how macroeconomic forces drive asset prices across global markets. Built from the same frameworks used by institutional traders.",
@@ -30,8 +30,8 @@ const products = [
   },
   {
     title: "JSF Daily Macroeconomic Reports",
-    price: "$39.99",
-    period: "AUD / month",
+    price: "$29.99",
+    period: "USD / month",
     type: "Subscription",
     description:
       "Institutional-quality daily briefings covering global macro conditions, key data releases, and actionable insights. Know what's moving markets before you trade.",
@@ -50,7 +50,7 @@ const products = [
   {
     title: "JSF 1-on-1 Mentorship: 12-Week Trading Curriculum",
     price: "$3,000",
-    period: "AUD one-time",
+    period: "USD one-time",
     type: "Mentorship",
     description:
       "A personalised 12-week intensive program tailored to your goals. Covers quantitative methods, model development, risk management, and live market application, all with direct access to Jackson.",
@@ -65,12 +65,32 @@ const products = [
     ],
     href: "/products/mentorship",
     cta: "Join Now",
+    highlight: false,
+  },
+  {
+    title: "JSF 6-Month Quantitative Trading Bootcamp",
+    price: "$6,000",
+    period: "USD one-time",
+    type: "Bootcamp",
+    description:
+      "The most intensive offering from JS Financials. Six months of 3x weekly calls, a full video series, daily macro reports, live model walkthroughs, personalised weekly content, and a fully built trading model by the end.",
+    features: [
+      "3x calls per week for 6 months",
+      "Full video series on quant trading concepts",
+      "Daily Macroeconomic Reports included",
+      "Live model walkthroughs & development",
+      "Personalised content delivered weekly",
+      "Build a validated trading model together",
+      "Discord access & 300+ learning documents",
+    ],
+    href: "/products/bootcamp",
+    cta: "Enrol Now",
     highlight: true,
   },
   {
     title: "JSF Quantitative Trading Discord",
     price: "$50",
-    period: "AUD / month",
+    period: "USD / month",
     type: "Community",
     description:
       "A private community of serious quantitative traders. Get live model signals, participate in macro discussions, collaborate on strategy development, and access real-time market analysis.",

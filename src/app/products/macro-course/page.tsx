@@ -57,7 +57,7 @@ export default function MacroCoursePage() {
             <div className="flex flex-wrap items-center gap-6 mb-8">
               <div>
                 <span className="text-4xl font-bold text-white">$199</span>
-                <span className="text-gray-400 ml-2">AUD one-time</span>
+                <span className="text-gray-400 ml-2">USD one-time</span>
               </div>
               <div className="flex items-center gap-2 text-gold text-sm">
                 <svg
@@ -247,7 +247,7 @@ export default function MacroCoursePage() {
               rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors"
             >
-              Enrol Now — $199 AUD
+              Enrol Now — $199 USD
             </a>
             <Link
               href="/products"

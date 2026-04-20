@@ -84,11 +84,11 @@ export default function DailyReportsPage() {
             </p>
             <div className="flex flex-wrap items-center gap-6 mb-8">
               <div>
-                <span className="text-4xl font-bold text-white">$39.99</span>
-                <span className="text-gray-400 ml-2">AUD / month</span>
+                <span className="text-4xl font-bold text-white">$29.99</span>
+                <span className="text-gray-400 ml-2">USD / month</span>
               </div>
               <div className="text-gray-500 text-sm">
-                or $359.99 / year (save 25%)
+                or $269.99 / year (save 25%)
               </div>
             </div>
             <div className="flex flex-wrap gap-4">
@@ -216,7 +216,7 @@ export default function DailyReportsPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors"
             >
-              Subscribe — $39.99/mo
+              Subscribe — $29.99/mo
             </a>
             <Link
               href="/products"
