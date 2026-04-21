@@ -48,26 +48,6 @@ const products = [
     highlight: false,
   },
   {
-    title: "JSF 1-on-1 Mentorship: 12-Week Trading Curriculum",
-    price: "$3,000",
-    period: "USD one-time",
-    type: "Mentorship",
-    description:
-      "A personalised 12-week intensive program tailored to your goals. Covers quantitative methods, model development, risk management, and live market application, all with direct access to Jackson.",
-    features: [
-      "3x 1-on-1 video sessions per week with Jackson",
-      "Personalised curriculum based on your level",
-      "Hands-on model development & backtesting",
-      "Risk management & portfolio construction",
-      "Live market application & trade review",
-      "Ongoing support throughout the program",
-      "12 month trading plan included at the end of the initial 12 weeks",
-    ],
-    href: "/products/mentorship",
-    cta: "Join Now",
-    highlight: false,
-  },
-  {
     title: "JSF 6-Month Quantitative Trading Bootcamp",
     price: "$6,000",
     period: "USD one-time",

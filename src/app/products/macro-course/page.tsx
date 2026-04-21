@@ -78,7 +78,7 @@ export default function MacroCoursePage() {
             </div>
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://buy.stripe.com/fZu28tduP0RZcBO3Nq6J200"
+                href="https://buy.stripe.com/8x2eVf0I3fMT31e6ZC6J204"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-8 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors"
@@ -242,7 +242,7 @@ export default function MacroCoursePage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://buy.stripe.com/fZu28tduP0RZcBO3Nq6J200"
+              href="https://buy.stripe.com/8x2eVf0I3fMT31e6ZC6J204"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors"

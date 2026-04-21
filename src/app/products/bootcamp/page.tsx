@@ -186,58 +186,6 @@ export default function BootcampPage() {
         </div>
       </section>
 
-      {/* Comparison */}
-      <section className="bg-white py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-3xl font-bold text-navy mb-10 text-center">
-            Bootcamp vs Mentorship
-          </h2>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="text-left py-4 pr-4 font-heading font-semibold text-navy">
-                    Feature
-                  </th>
-                  <th className="text-center py-4 px-4 font-heading font-semibold text-navy">
-                    12-Week Mentorship
-                  </th>
-                  <th className="text-center py-4 pl-4 font-heading font-semibold text-gold">
-                    6-Month Bootcamp
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="text-gray-600">
-                {[
-                  ["Duration", "12 weeks", "6 months"],
-                  ["Calls per week", "3x", "3x"],
-                  ["Video series", "\u2014", "\u2713"],
-                  ["Daily macro reports", "\u2014", "\u2713 Included"],
-                  ["Model walkthroughs", "\u2014", "\u2713"],
-                  ["Personalised weekly content", "\u2014", "\u2713"],
-                  ["Build a model together", "\u2713", "\u2713"],
-                  ["Discord access", "\u2713", "\u2713"],
-                  ["300+ documents", "\u2713", "\u2713"],
-                  ["Direct phone access", "\u2713", "\u2713"],
-                  ["12-month trading plan", "\u2713", "\u2713"],
-                  ["Price", "$3,000 USD", "$6,000 USD"],
-                ].map(([feature, mentorship, bootcamp]) => (
-                  <tr key={feature} className="border-b border-gray-100">
-                    <td className="py-3 pr-4 font-medium text-navy">
-                      {feature}
-                    </td>
-                    <td className="py-3 px-4 text-center">{mentorship}</td>
-                    <td className="py-3 pl-4 text-center font-medium">
-                      {bootcamp}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="bg-navy py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

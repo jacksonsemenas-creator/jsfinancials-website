@@ -86,21 +86,6 @@ const products = [
     cta: "Subscribe",
   },
   {
-    title: "1-on-1 Mentorship: 12-Week Curriculum",
-    price: "$3,000",
-    period: "one-time",
-    description:
-      "Personalised 12-week program covering quantitative methods, model development, risk management, and live market application.",
-    features: [
-      "3x 1-on-1 sessions per week",
-      "Custom model development",
-      "Risk management frameworks",
-      "Live market application",
-    ],
-    href: "/products/mentorship",
-    cta: "Join Now",
-  },
-  {
     title: "6-Month Trading Bootcamp",
     price: "$6,000",
     period: "one-time",

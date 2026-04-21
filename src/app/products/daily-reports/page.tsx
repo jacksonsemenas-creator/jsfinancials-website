@@ -93,7 +93,7 @@ export default function DailyReportsPage() {
             </div>
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://buy.stripe.com/00w4gB9ez307eJWcjW6J201"
+                href="https://buy.stripe.com/3cI00l9ezasz0T6gAc6J205"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-8 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors"
@@ -211,7 +211,7 @@ export default function DailyReportsPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://buy.stripe.com/00w4gB9ez307eJWcjW6J201"
+              href="https://buy.stripe.com/3cI00l9ezasz0T6gAc6J205"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors"
