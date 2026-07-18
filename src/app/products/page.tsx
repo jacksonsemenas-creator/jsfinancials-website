@@ -10,22 +10,22 @@ export const metadata: Metadata = {
 
 const products = [
   {
-    title: "JSF Macroeconomics for Financial Markets & Trading",
-    price: "$199",
-    period: "USD one-time",
-    type: "Course",
+    title: "JSF Quantitative Trading Discord",
+    price: "$50",
+    period: "USD / month",
+    type: "Community",
     description:
-      "A comprehensive course designed to teach you how macroeconomic forces drive asset prices across global markets. Built from the same frameworks used by institutional traders.",
+      "A private community of serious quantitative traders. Get live model signals, participate in macro discussions, collaborate on strategy development, and access real-time market analysis.",
     features: [
-      "Central bank policy mechanics & rate expectations",
-      "Yield curve analysis & fixed income dynamics",
-      "Cross-asset macro frameworks (equities, FX, commodities)",
-      "Inflation, employment & growth data interpretation",
-      "Applied macro trading strategies with real examples",
-      "Self-paced, lifetime access to all materials",
+      "Live model signals & trade alerts",
+      "Real-time macro & market discussion",
+      "Strategy development & code sharing",
+      "Direct access to Jackson for Q&A",
+      "Research paper discussions",
+      "Network with other quant traders",
     ],
-    href: "/products/macro-course",
-    cta: "Enrol Now",
+    href: "https://www.launchpass.com/js-financials/quantitativetrading",
+    cta: "Join Discord",
     highlight: false,
   },
   {
@@ -67,6 +67,25 @@ const products = [
     highlight: false,
   },
   {
+    title: "JSF Macroeconomics for Financial Markets & Trading",
+    price: "$199",
+    period: "USD one-time",
+    type: "Course",
+    description:
+      "A comprehensive course designed to teach you how macroeconomic forces drive asset prices across global markets. Built from the same frameworks used by institutional traders.",
+    features: [
+      "Central bank policy mechanics & rate expectations",
+      "Yield curve analysis & fixed income dynamics",
+      "Cross-asset macro frameworks (equities, FX, commodities)",
+      "Inflation, employment & growth data interpretation",
+      "Applied macro trading strategies with real examples",
+      "Self-paced, lifetime access to all materials",
+    ],
+    href: "/products/macro-course",
+    cta: "Enrol Now",
+    highlight: false,
+  },
+  {
     title: "JSF 6-Month Quantitative Trading Bootcamp",
     price: "$6,000",
     period: "USD one-time",
@@ -85,25 +104,6 @@ const products = [
     href: "/products/bootcamp",
     cta: "Enrol Now",
     highlight: true,
-  },
-  {
-    title: "JSF Quantitative Trading Discord",
-    price: "$50",
-    period: "USD / month",
-    type: "Community",
-    description:
-      "A private community of serious quantitative traders. Get live model signals, participate in macro discussions, collaborate on strategy development, and access real-time market analysis.",
-    features: [
-      "Live model signals & trade alerts",
-      "Real-time macro & market discussion",
-      "Strategy development & code sharing",
-      "Direct access to Jackson for Q&A",
-      "Research paper discussions",
-      "Network with other quant traders",
-    ],
-    href: "https://www.launchpass.com/js-financials/quantitativetrading",
-    cta: "Join Discord",
-    highlight: false,
   },
 ];
 

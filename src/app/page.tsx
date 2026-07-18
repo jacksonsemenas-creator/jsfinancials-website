@@ -56,19 +56,19 @@ const models = [
 
 const products = [
   {
-    title: "Macroeconomics for Financial Markets & Trading",
-    price: "$199",
-    period: "one-time",
+    title: "Quantitative Trading Discord",
+    price: "$50",
+    period: "/month",
     description:
-      "Comprehensive course covering how macroeconomic forces drive asset prices, from yield curves to central bank policy to cross-asset flows.",
+      "Join a private community of quantitative traders. Live model signals, macro discussion, strategy development, and real-time market analysis.",
     features: [
-      "Central bank policy & interest rate mechanics",
-      "Yield curve analysis & bond market dynamics",
-      "Cross-asset macro frameworks",
-      "Applied trading strategies",
+      "Live model signals & alerts",
+      "Real-time macro discussion",
+      "Strategy development channels",
+      "Direct access to Jackson",
     ],
-    href: "/products/macro-course",
-    cta: "Enrol Now",
+    href: "https://www.launchpass.com/js-financials/quantitativetrading",
+    cta: "Join Discord",
   },
   {
     title: "Prediction Markets Trading Course",
@@ -101,6 +101,21 @@ const products = [
     cta: "Subscribe",
   },
   {
+    title: "Macroeconomics for Financial Markets & Trading",
+    price: "$199",
+    period: "one-time",
+    description:
+      "Comprehensive course covering how macroeconomic forces drive asset prices, from yield curves to central bank policy to cross-asset flows.",
+    features: [
+      "Central bank policy & interest rate mechanics",
+      "Yield curve analysis & bond market dynamics",
+      "Cross-asset macro frameworks",
+      "Applied trading strategies",
+    ],
+    href: "/products/macro-course",
+    cta: "Enrol Now",
+  },
+  {
     title: "6-Month Trading Bootcamp",
     price: "$6,000",
     period: "one-time",
@@ -114,21 +129,6 @@ const products = [
     ],
     href: "/products/bootcamp",
     cta: "Enrol Now",
-  },
-  {
-    title: "Quantitative Trading Discord",
-    price: "$50",
-    period: "/month",
-    description:
-      "Join a private community of quantitative traders. Live model signals, macro discussion, strategy development, and real-time market analysis.",
-    features: [
-      "Live model signals & alerts",
-      "Real-time macro discussion",
-      "Strategy development channels",
-      "Direct access to Jackson",
-    ],
-    href: "https://www.launchpass.com/js-financials/quantitativetrading",
-    cta: "Join Discord",
   },
 ];
 
