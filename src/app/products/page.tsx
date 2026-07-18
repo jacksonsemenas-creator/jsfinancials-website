@@ -29,6 +29,25 @@ const products = [
     highlight: false,
   },
   {
+    title: "JSF Prediction Markets Trading Course",
+    price: "$500",
+    period: "USD one-time",
+    type: "Course",
+    description:
+      "Systematic trading on prediction markets. Learn to price binary contracts with a fair value model, build and validate your own strategies, and deploy with institutional-grade risk discipline.",
+    features: [
+      "Fair value pricing for binary prediction contracts",
+      "Volatility estimation & derivatives pricing foundations",
+      "Full model development workflow, hypothesis to deployment",
+      "Realistic backtesting & out-of-sample validation",
+      "Python code templates for every build module",
+      "23 modules, PDFs + weekly video lectures, lifetime access",
+    ],
+    href: "/products/prediction-markets",
+    cta: "Enrol Now",
+    highlight: false,
+  },
+  {
     title: "JSF Daily Macroeconomic Reports",
     price: "$29.99",
     period: "USD / month",

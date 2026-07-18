@@ -71,6 +71,21 @@ const products = [
     cta: "Enrol Now",
   },
   {
+    title: "Prediction Markets Trading Course",
+    price: "$500",
+    period: "one-time",
+    description:
+      "Systematic trading on prediction markets: fair value pricing for binary contracts, full model development, validation, and deployment.",
+    features: [
+      "Fair value pricing for binary markets",
+      "Complete model development workflow",
+      "Backtesting, validation & risk frameworks",
+      "23 modules, PDFs plus full video series",
+    ],
+    href: "/products/prediction-markets",
+    cta: "Enrol Now",
+  },
+  {
     title: "Daily Macroeconomic Reports",
     price: "$29.99",
     period: "/month",
