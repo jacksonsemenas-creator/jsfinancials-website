@@ -1,7 +1,15 @@
 import { NextRequest } from "next/server";
 import { Resend } from "resend";
+import { createClient } from "@supabase/supabase-js";
 
 export const dynamic = "force-dynamic";
+
+function getSupabaseAdmin() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+  );
+}
 
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
@@ -31,6 +39,14 @@ const PRODUCT_MAP: Record<
   },
 };
 
+// Map Stripe product types to entitlement product enums
+const ENTITLEMENT_MAP: Record<string, string> = {
+  "macro-course": "macro_course",
+  "daily-reports": "daily_report",
+  "mentorship": "discord",
+  "prediction-markets": "prediction_markets",
+};
+
 function getMacroCourseEmail(name: string) {
   return {
     subject: "Welcome to Macroeconomics for Financial Markets & Trading",
@@ -47,6 +63,9 @@ function getMacroCourseEmail(name: string) {
           </p>
           <p style="color: #333; font-size: 16px; line-height: 1.6;">
             Your course PDF is attached to this email. Save it somewhere accessible — you'll want to refer back to it as you work through the modules. The course is designed to be studied at your own pace, and you can revisit any section at any time.
+          </p>
+          <p style="color: #333; font-size: 16px; line-height: 1.6;">
+            You also have access to the member portal where all course materials are available: <a href="https://jsfinancials.com.au/forgot-password" style="color: #a48420; font-weight: bold;">Set your password here</a> to get started, then log in at <a href="https://jsfinancials.com.au/login" style="color: #a48420;">jsfinancials.com.au/login</a>.
           </p>
           <p style="color: #333; font-size: 16px; line-height: 1.6;">
             If you have any questions as you work through the material, reach out directly via Instagram <a href="https://www.instagram.com/js_financials" style="color: #a48420;">@js_financials</a> or reply to this email.
@@ -88,7 +107,13 @@ function getDailyReportsEmail(name: string) {
             Your first report will arrive at 10:00 PM AEDT tonight (or tomorrow if you're subscribing after 10 PM). Use it to prepare for the next trading session with institutional-grade macro clarity.
           </p>
           <p style="color: #333; font-size: 16px; line-height: 1.6;">
-            You can cancel anytime — no lock-in, no questions asked. If you have any questions, reach out via Instagram <a href="https://www.instagram.com/js_financials" style="color: #a48420;">@js_financials</a> or reply to this email.
+            You can cancel anytime — no lock-in, no questions asked.
+          </p>
+          <p style="color: #333; font-size: 16px; line-height: 1.6;">
+            Your reports are also archived in the member portal. <a href="https://jsfinancials.com.au/forgot-password" style="color: #a48420; font-weight: bold;">Set your password here</a> to access your archive at <a href="https://jsfinancials.com.au/login" style="color: #a48420;">jsfinancials.com.au/login</a>.
+          </p>
+          <p style="color: #333; font-size: 16px; line-height: 1.6;">
+            If you have any questions, reach out via Instagram <a href="https://www.instagram.com/js_financials" style="color: #a48420;">@js_financials</a> or reply to this email.
           </p>
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
             <p style="color: #888; font-size: 13px;">
@@ -132,6 +157,39 @@ function getMentorshipEmail(name: string) {
           </p>
           <p style="color: #333; font-size: 16px; line-height: 1.6;">
             If you have any immediate questions, you can reach me directly via phone (you'll receive my number in our first session), Instagram <a href="https://www.instagram.com/js_financials" style="color: #a48420;">@js_financials</a>, or by replying to this email.
+          </p>
+          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+            <p style="color: #888; font-size: 13px;">
+              Jackson Semenas<br/>
+              JS Financials<br/>
+              <a href="https://jsfinancials.com.au" style="color: #a48420;">jsfinancials.com.au</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    `,
+  };
+}
+
+function getPredictionMarketsEmail(name: string) {
+  return {
+    subject: "Welcome to the Prediction Market Trading Course",
+    html: `
+      <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff;">
+        <div style="background: #121f37; padding: 40px 30px; text-align: center;">
+          <h1 style="color: #ffffff; font-size: 24px; margin: 0;">Welcome to JS Financials</h1>
+          <p style="color: #a48420; font-size: 14px; margin-top: 8px;">Prediction Market Trading Course</p>
+        </div>
+        <div style="padding: 30px;">
+          <p style="color: #333; font-size: 16px; line-height: 1.6;">Hi ${name},</p>
+          <p style="color: #333; font-size: 16px; line-height: 1.6;">
+            Thank you for enrolling in the <strong>Prediction Market Trading Course</strong>. You now have lifetime access to the full course covering prediction market fundamentals, platform mechanics, arbitrage strategies, and building systematic edges.
+          </p>
+          <p style="color: #333; font-size: 16px; line-height: 1.6;">
+            Log in to your member portal to access all course materials: <a href="https://jsfinancials.com.au/members" style="color: #a48420; font-weight: bold;">jsfinancials.com.au/members</a>
+          </p>
+          <p style="color: #333; font-size: 16px; line-height: 1.6;">
+            If you have any questions, reach out via Instagram <a href="https://www.instagram.com/js_financials" style="color: #a48420;">@js_financials</a> or reply to this email.
           </p>
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
             <p style="color: #888; font-size: 13px;">
@@ -205,6 +263,66 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: "Invalid signature" }, { status: 400 });
   }
 
+  // Handle subscription lifecycle events
+  if (
+    event.type === "customer.subscription.updated" ||
+    event.type === "customer.subscription.deleted" ||
+    event.type === "invoice.payment_failed"
+  ) {
+    try {
+      const supabase = getSupabaseAdmin();
+      const subData = event.data as Record<string, unknown>;
+      const subObj = subData.object as Record<string, unknown>;
+
+      let subEmail: string | undefined;
+      if (event.type === "invoice.payment_failed") {
+        subEmail = (subObj.customer_email as string) ?? undefined;
+      } else {
+        // For subscription events, look up customer email
+        const customerId = subObj.customer as string;
+        // Store email from metadata if available
+        const metadata = subObj.metadata as Record<string, string> | null;
+        subEmail = metadata?.email;
+      }
+
+      if (subEmail) {
+        const newStatus =
+          event.type === "customer.subscription.deleted"
+            ? "canceled"
+            : event.type === "invoice.payment_failed"
+              ? "past_due"
+              : (subObj.status === "active" ? "active" : "canceled");
+
+        // Find user and update entitlement status
+        let userId: string | undefined;
+        let page = 1;
+        while (!userId) {
+          const { data: batch } = await supabase.auth.admin.listUsers({ page, perPage: 500 });
+          if (!batch?.users.length) break;
+          userId = batch.users.find((u) => u.email === subEmail)?.id;
+          page++;
+        }
+
+        if (userId) {
+          await supabase
+            .from("entitlements")
+            .update({
+              status: newStatus,
+              current_period_end: subObj.current_period_end
+                ? new Date((subObj.current_period_end as number) * 1000).toISOString()
+                : null,
+            })
+            .eq("user_id", userId)
+            .eq("product", "daily_report");
+        }
+      }
+    } catch (error) {
+      console.error("Subscription event handling error:", error);
+    }
+
+    return Response.json({ received: true });
+  }
+
   if (event.type !== "checkout.session.completed") {
     return Response.json({ received: true });
   }
@@ -223,13 +341,14 @@ export async function POST(request: NextRequest) {
   // The product type is determined by matching the payment link
   const paymentLink = sessionObj.payment_link as string | null;
 
-  let productType: "macro-course" | "daily-reports" | "mentorship" | null = null;
+  let productType: "macro-course" | "daily-reports" | "mentorship" | "prediction-markets" | null = null;
 
   if (paymentLink) {
-    const linkMap: Record<string, "macro-course" | "daily-reports" | "mentorship"> = {
+    const linkMap: Record<string, "macro-course" | "daily-reports" | "mentorship" | "prediction-markets"> = {
       [process.env.STRIPE_PAYMENT_LINK_MACRO!]: "macro-course",
       [process.env.STRIPE_PAYMENT_LINK_REPORTS!]: "daily-reports",
       [process.env.STRIPE_PAYMENT_LINK_MENTORSHIP!]: "mentorship",
+      [process.env.STRIPE_PAYMENT_LINK_PREDICTION!]: "prediction-markets",
     };
     productType = linkMap[paymentLink] || null;
   }
@@ -260,6 +379,9 @@ export async function POST(request: NextRequest) {
     case "mentorship":
       emailContent = getMentorshipEmail(customerName);
       break;
+    case "prediction-markets":
+      emailContent = getPredictionMarketsEmail(customerName);
+      break;
   }
 
   try {
@@ -273,6 +395,72 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Failed to send email:", error);
     return Response.json({ error: "Failed to send email" }, { status: 500 });
+  }
+
+  // Create entitlement for the member portal
+  const entitlementProduct = ENTITLEMENT_MAP[productType];
+  if (entitlementProduct) {
+    try {
+      const supabase = getSupabaseAdmin();
+
+      // Find existing user by email
+      // createUser with an existing email returns an error, so try creating
+      // first and handle the "already exists" case
+      let userId: string | undefined;
+      const { data: newUser, error: createError } =
+        await supabase.auth.admin.createUser({
+          email: customerEmail,
+          password: crypto.randomUUID() + "!Aa1",
+          email_confirm: true,
+          user_metadata: {
+            first_name: customerName !== "there" ? customerName.split(" ")[0] : undefined,
+            full_name: customerName !== "there" ? customerName : undefined,
+          },
+        });
+
+      if (createError) {
+        if (createError.message.includes("already been registered") || createError.status === 422) {
+          // User exists, find them via listUsers with pagination
+          let page = 1;
+          while (!userId) {
+            const { data: batch } = await supabase.auth.admin.listUsers({ page, perPage: 500 });
+            if (!batch?.users.length) break;
+            userId = batch.users.find((u) => u.email === customerEmail)?.id;
+            page++;
+          }
+        } else {
+          console.error("Failed to create user:", createError.message);
+        }
+      } else {
+        userId = newUser.user.id;
+      }
+
+      if (userId) {
+        // Calculate period end based on product type
+        const periodEnd =
+          productType === "daily-reports"
+            ? new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString()
+            : null;
+
+        const { error: entError } = await supabase
+          .from("entitlements")
+          .upsert(
+            {
+              user_id: userId,
+              product: entitlementProduct,
+              status: "active",
+              current_period_end: periodEnd,
+            },
+            { onConflict: "user_id,product", ignoreDuplicates: false },
+          );
+
+        if (entError) {
+          console.error("Failed to create entitlement:", entError.message);
+        }
+      }
+    } catch (error) {
+      console.error("Entitlement creation error:", error);
+    }
   }
 
   return Response.json({ received: true, emailSent: true });
