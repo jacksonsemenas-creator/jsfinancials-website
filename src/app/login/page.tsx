@@ -25,14 +25,25 @@ export default async function LoginPage(props: {
 
         <LoginForm redirect={redirect} />
 
-        <p className="mt-6 text-center text-sm text-gray-500">
-          <a
-            href="/forgot-password"
-            className="text-gold hover:text-gold-light transition-colors"
-          >
-            Forgot your password?
-          </a>
-        </p>
+        <div className="mt-6 text-center text-sm text-gray-500 space-y-2">
+          <p>
+            <a
+              href="/forgot-password"
+              className="text-gold hover:text-gold-light transition-colors"
+            >
+              Forgot your password?
+            </a>
+          </p>
+          <p>
+            Don&apos;t have an account?{" "}
+            <a
+              href="/signup"
+              className="text-gold hover:text-gold-light transition-colors"
+            >
+              Create one
+            </a>
+          </p>
+        </div>
       </div>
     </section>
   );
