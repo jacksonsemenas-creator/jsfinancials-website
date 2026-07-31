@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
+import ChatWidget from "@/components/ChatWidget";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -79,6 +80,7 @@ export default function RootLayout({
         <main className="flex-1 pt-16">{children}</main>
         <Footer />
         <BackToTop />
+        <ChatWidget />
       </body>
     </html>
   );
