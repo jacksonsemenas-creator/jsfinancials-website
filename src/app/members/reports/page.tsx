@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { getUser, hasEntitlement } from "@/lib/entitlements";
 import type { Metadata } from "next";
 import LockedContent from "../LockedContent";
+import CancelSubscription from "./CancelSubscription";
 
 export const metadata: Metadata = {
   title: "Daily Reports",
@@ -28,20 +29,37 @@ export default async function ReportsPage() {
   }
 
   const supabase = await createClient();
-  const { data: reports } = await supabase
-    .from("daily_reports")
-    .select("id, title, report_date, file_path")
-    .order("report_date", { ascending: false });
+
+  const [{ data: reports }, { data: entitlement }] = await Promise.all([
+    supabase
+      .from("daily_reports")
+      .select("id, title, report_date, file_path")
+      .order("report_date", { ascending: false }),
+    supabase
+      .from("entitlements")
+      .select("current_period_end")
+      .eq("user_id", user.id)
+      .eq("product", "daily_report")
+      .eq("status", "active")
+      .limit(1)
+      .single(),
+  ]);
 
   return (
     <div>
-      <h1 className="text-2xl font-heading font-bold text-white tracking-wide">
-        Daily Macro Reports
-      </h1>
-      <p className="mt-2 text-gray-400 text-sm">
-        Your archive of daily macroeconomic reports. New reports are added every
-        day at 10:00 PM AEDT.
-      </p>
+      <div className="flex items-start justify-between">
+        <div>
+          <h1 className="text-2xl font-heading font-bold text-white tracking-wide">
+            Daily Macro Reports
+          </h1>
+          <p className="mt-2 text-gray-400 text-sm">
+            Your archive of daily macroeconomic reports. New reports are added every
+            day at 10:00 PM AEDT.
+          </p>
+        </div>
+      </div>
+
+      <CancelSubscription periodEnd={entitlement?.current_period_end ?? null} />
 
       <div className="mt-8">
         {reports && reports.length > 0 ? (
