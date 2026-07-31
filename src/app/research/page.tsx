@@ -9,6 +9,17 @@ export const metadata: Metadata = {
 const publications = [
   {
     title:
+      "Fair Value Pricing in Short-Dated Bitcoin Binary Markets",
+    type: "Quantitative Finance",
+    date: "July 2026",
+    status: "Working paper",
+    abstract:
+      "This paper develops a fair value pricing framework for short-dated Bitcoin binary options traded on prediction markets, deriving optimal entry conditions, fee-adjusted breakeven probabilities, and Kelly-optimal sizing under an Ornstein–Uhlenbeck model of BTC microstructure dynamics.",
+    tags: ["Quantitative Finance", "Market Microstructure", "Prediction Markets", "Bitcoin"],
+    pdf: "/files/Fair-Value-Pricing-in-Short-Dated-Bitcoin-Binary-Markets.pdf",
+  },
+  {
+    title:
       "Balancing Immigration and Inflation in the Australian Economy: A Policy Proposal",
     type: "Economic Policy Proposal",
     date: "October 2025",
@@ -19,13 +30,7 @@ const publications = [
   },
 ];
 
-const workingPapers = [
-  {
-    title: "Research papers will be published here",
-    description:
-      "Upcoming publications on quantitative methods, market microstructure, and applied statistical modelling will appear in this section.",
-  },
-];
+const workingPapers: { title: string; description: string }[] = [];
 
 export default function ResearchPage() {
   return (
@@ -71,7 +76,7 @@ export default function ResearchPage() {
                 <p className="text-gray-600 text-sm leading-relaxed mb-4">
                   {pub.abstract}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   {pub.tags.map((tag) => (
                     <span
                       key={tag}
@@ -80,6 +85,19 @@ export default function ResearchPage() {
                       {tag}
                     </span>
                   ))}
+                  {pub.pdf && (
+                    <a
+                      href={pub.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ml-auto inline-flex items-center gap-1.5 px-3 py-1.5 bg-navy text-white text-xs font-semibold rounded hover:bg-navy/80 transition-colors"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      Download PDF
+                    </a>
+                  )}
                 </div>
               </article>
             ))}
@@ -94,17 +112,25 @@ export default function ResearchPage() {
             Working Papers
           </h2>
           <div className="space-y-6">
-            {workingPapers.map((paper) => (
-              <div
-                key={paper.title}
-                className="bg-white border border-dashed border-gray-300 rounded-xl p-6"
-              >
-                <h3 className="font-heading text-lg font-semibold text-gray-400 mb-2">
-                  {paper.title}
-                </h3>
-                <p className="text-gray-400 text-sm">{paper.description}</p>
+            {workingPapers.length > 0 ? (
+              workingPapers.map((paper) => (
+                <div
+                  key={paper.title}
+                  className="bg-white border border-dashed border-gray-300 rounded-xl p-6"
+                >
+                  <h3 className="font-heading text-lg font-semibold text-gray-400 mb-2">
+                    {paper.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm">{paper.description}</p>
+                </div>
+              ))
+            ) : (
+              <div className="bg-white border border-dashed border-gray-300 rounded-xl p-6">
+                <p className="text-gray-400 text-sm">
+                  Upcoming working papers will appear in this section.
+                </p>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
