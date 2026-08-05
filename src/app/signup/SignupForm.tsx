@@ -29,7 +29,7 @@ export default function SignupForm({ redirect }: { redirect: string }) {
     setLoading(true);
 
     const supabase = createClient();
-    const { error: authError } = await supabase.auth.signUp({
+    const { data, error: authError } = await supabase.auth.signUp({
       email,
       password,
       options: {
@@ -43,6 +43,15 @@ export default function SignupForm({ redirect }: { redirect: string }) {
 
     if (authError) {
       setError(authError.message);
+      setLoading(false);
+      return;
+    }
+
+    // Supabase returns a user with empty identities if the email already exists
+    if (data.user && data.user.identities?.length === 0) {
+      setError(
+        "An account with this email already exists. Please log in instead, or use forgot password to reset your credentials."
+      );
       setLoading(false);
       return;
     }

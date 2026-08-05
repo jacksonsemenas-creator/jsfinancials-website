@@ -384,20 +384,7 @@ export async function POST(request: NextRequest) {
       break;
   }
 
-  try {
-    await getResend().emails.send({
-      from: process.env.RESEND_FROM_EMAIL || "JS Financials <hello@jsfinancials.com.au>",
-      to: customerEmail,
-      subject: emailContent.subject,
-      html: emailContent.html,
-      ...(attachments.length > 0 ? { attachments } : {}),
-    });
-  } catch (error) {
-    console.error("Failed to send email:", error);
-    return Response.json({ error: "Failed to send email" }, { status: 500 });
-  }
-
-  // Create entitlement for the member portal
+  // Create entitlement FIRST, before sending email
   const entitlementProduct = ENTITLEMENT_MAP[productType];
   if (entitlementProduct) {
     try {
@@ -463,5 +450,18 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  return Response.json({ received: true, emailSent: true });
+  // Send welcome email (don't block entitlement on email failure)
+  try {
+    await getResend().emails.send({
+      from: process.env.RESEND_FROM_EMAIL || "JS Financials <hello@jsfinancials.com.au>",
+      to: customerEmail,
+      subject: emailContent.subject,
+      html: emailContent.html,
+      ...(attachments.length > 0 ? { attachments } : {}),
+    });
+  } catch (error) {
+    console.error("Failed to send email:", error);
+  }
+
+  return Response.json({ received: true });
 }
