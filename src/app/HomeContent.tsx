@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useForm } from "@formspree/react";
 import { motion } from "framer-motion";
+import FaqAccordion from "@/components/FaqAccordion";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -411,8 +412,34 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* About Preview */}
+      {/* FAQ */}
       <section className="bg-gray-50 py-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-14"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+          >
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-navy mb-4">
+              Frequently Asked Questions
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUp}
+          >
+            <FaqAccordion />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About Preview */}
+      <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="grid md:grid-cols-2 gap-12 items-center"
