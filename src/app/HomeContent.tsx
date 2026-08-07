@@ -200,11 +200,12 @@ export default function HomeContent() {
       {/* Credibility Bar */}
       <section className="bg-navy-dark border-y border-gold/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { stat: "4+", label: "Years Trading, Researching, and Developing" },
+              { stat: "168+", label: "Students & Subscribers" },
+              { stat: "220+", label: "Daily Macro Reports Published" },
               { stat: "99.95", label: "University Selection Rank" },
-              { stat: "HFT & LFT", label: "Model Classes" },
+              { stat: "4+", label: "Years Trading & Researching" },
             ].map((item) => (
               <div key={item.label}>
                 <div className="text-gold font-heading text-2xl font-bold">
