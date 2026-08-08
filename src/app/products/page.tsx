@@ -10,6 +10,26 @@ export const metadata: Metadata = {
 
 const products = [
   {
+    title: "JSF 1-on-1 Mentorship Program",
+    price: "Apply",
+    period: "",
+    type: "Mentorship",
+    description:
+      "The most intensive offering from JS Financials. Six months of 3x weekly calls, a full video series, daily macro reports, live model walkthroughs, personalised weekly content, and a fully built trading model by the end.",
+    features: [
+      "3x calls per week for 6 months",
+      "Full video series on quant trading concepts",
+      "Daily Macroeconomic Reports included",
+      "Live model walkthroughs & development",
+      "Personalised content delivered weekly",
+      "Build a validated trading model together",
+      "Discord access & 300+ learning documents",
+    ],
+    href: "/products/bootcamp",
+    cta: "Apply Now",
+    highlight: true,
+  },
+  {
     title: "JSF Quantitative Trading Discord",
     price: "$50",
     period: "USD / month",
@@ -84,26 +104,6 @@ const products = [
     href: "/products/macro-course",
     cta: "Enrol Now",
     highlight: false,
-  },
-  {
-    title: "JSF 1-on-1 Mentorship Program",
-    price: "Apply",
-    period: "",
-    type: "Mentorship",
-    description:
-      "The most intensive offering from JS Financials. Six months of 3x weekly calls, a full video series, daily macro reports, live model walkthroughs, personalised weekly content, and a fully built trading model by the end.",
-    features: [
-      "3x calls per week for 6 months",
-      "Full video series on quant trading concepts",
-      "Daily Macroeconomic Reports included",
-      "Live model walkthroughs & development",
-      "Personalised content delivered weekly",
-      "Build a validated trading model together",
-      "Discord access & 300+ learning documents",
-    ],
-    href: "/products/bootcamp",
-    cta: "Apply Now",
-    highlight: true,
   },
 ];
 

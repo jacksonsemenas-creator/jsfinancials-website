@@ -57,6 +57,21 @@ const models = [
 
 const products = [
   {
+    title: "1-on-1 Mentorship Program",
+    price: "Apply",
+    period: "",
+    description:
+      "The most intensive program. 6 months of 3x weekly calls, video series, daily macro reports, model walkthroughs, and a fully built trading model.",
+    features: [
+      "3x calls/week for 6 months",
+      "Full video series included",
+      "Daily macro reports included",
+      "Build a validated model together",
+    ],
+    href: "/products/bootcamp",
+    cta: "Apply Now",
+  },
+  {
     title: "Quantitative Trading Discord",
     price: "$50",
     period: "/month",
@@ -115,21 +130,6 @@ const products = [
     ],
     href: "/products/macro-course",
     cta: "Enrol Now",
-  },
-  {
-    title: "1-on-1 Mentorship Program",
-    price: "Apply",
-    period: "",
-    description:
-      "The most intensive program. 6 months of 3x weekly calls, video series, daily macro reports, model walkthroughs, and a fully built trading model.",
-    features: [
-      "3x calls/week for 6 months",
-      "Full video series included",
-      "Daily macro reports included",
-      "Build a validated model together",
-    ],
-    href: "/products/bootcamp",
-    cta: "Apply Now",
   },
 ];
 
