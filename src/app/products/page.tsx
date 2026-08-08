@@ -151,9 +151,11 @@ export default function ProductsPage() {
                   <span className="text-3xl font-bold text-navy">
                     {product.price}
                   </span>
-                  <span className="text-gray-500 text-sm ml-2">
-                    {product.period}
-                  </span>
+                  {product.period && (
+                    <span className="text-gray-500 text-sm ml-2">
+                      {product.period}
+                    </span>
+                  )}
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed mb-6">
                   {product.description}

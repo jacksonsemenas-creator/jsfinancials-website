@@ -306,11 +306,13 @@ export default function HomeContent() {
                   <span className="text-2xl font-bold text-navy">
                     {product.price}
                   </span>
-                  <span className="text-gray-500 text-sm ml-1">
-                    {product.period === "one-time"
-                      ? " USD"
-                      : ` USD${product.period}`}
-                  </span>
+                  {product.period && (
+                    <span className="text-gray-500 text-sm ml-1">
+                      {product.period === "one-time"
+                        ? " USD"
+                        : ` USD${product.period}`}
+                    </span>
+                  )}
                 </div>
                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                   {product.description}
