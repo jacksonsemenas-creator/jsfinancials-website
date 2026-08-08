@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     q: "Do I need coding or maths experience?",
-    a: "Not at all. The Macro Course and Daily Reports require zero technical background. The Prediction Markets Course includes Python code templates but is designed so you can follow along even if you have never coded before. The Bootcamp is fully personalised to your skill level, so Jackson will meet you where you are.",
+    a: "Not at all. The Macro Course and Daily Reports require zero technical background. The Prediction Markets Course includes Python code templates but is designed so you can follow along even if you have never coded before. The Mentorship is fully personalised to your skill level, so Jackson will meet you where you are.",
   },
   {
     q: "What makes JS Financials different from other trading education?",
@@ -28,8 +28,8 @@ const faqs = [
     a: "Each report covers 40+ FX pairs, 9 commodities, 9 equity indices, and 8 cryptocurrencies. You get a global macro overview, fundamental analysis for every asset class, and a comprehensive dashboard with directional bias, risk scores, and tradability rankings. Reports are delivered to your inbox every day at 10:00 PM AEDT and archived in the member portal.",
   },
   {
-    q: "How does the 6-Month Bootcamp work?",
-    a: "You get three live calls per week with Jackson over six months via Google Meet. The curriculum starts with macro and quantitative foundations, moves into model development and Python coding, and finishes with statistical validation and live deployment. By the end, you will have built a fully backtested, institutional-standard trading model. You also get the Daily Reports, Discord access, and 300+ learning documents included.",
+    q: "How does the 1-on-1 Mentorship work?",
+    a: "You get three live calls per week with Jackson over six months via Google Meet. The curriculum starts with macro and quantitative foundations, moves into model development and Python coding, and finishes with statistical validation and live deployment. By the end, you will have built a fully backtested, institutional-standard trading model. You also get the Daily Reports, Discord access, and 300+ learning documents included. Apply via a free call to discuss fit and goals.",
   },
   {
     q: "I am not sure which product is right for me. Can I get advice?",

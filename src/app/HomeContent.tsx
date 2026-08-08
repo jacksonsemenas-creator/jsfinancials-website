@@ -117,9 +117,9 @@ const products = [
     cta: "Enrol Now",
   },
   {
-    title: "6-Month Trading Bootcamp",
-    price: "$6,000",
-    period: "one-time",
+    title: "1-on-1 Mentorship Program",
+    price: "Apply",
+    period: "",
     description:
       "The most intensive program. 6 months of 3x weekly calls, video series, daily macro reports, model walkthroughs, and a fully built trading model.",
     features: [
@@ -129,7 +129,7 @@ const products = [
       "Build a validated model together",
     ],
     href: "/products/bootcamp",
-    cta: "Enrol Now",
+    cta: "Apply Now",
   },
 ];
 

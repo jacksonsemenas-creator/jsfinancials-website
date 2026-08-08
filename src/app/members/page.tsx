@@ -12,7 +12,7 @@ const productLabels: Record<string, string> = {
   macro_course: "Macroeconomics Course",
   prediction_markets: "Prediction Markets",
   discord: "Discord Community",
-  bootcamp: "Trading Bootcamp",
+  bootcamp: "1-on-1 Mentorship",
 };
 
 export default async function MembersPage() {

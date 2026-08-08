@@ -86,10 +86,10 @@ const products = [
     highlight: false,
   },
   {
-    title: "JSF 6-Month Quantitative Trading Bootcamp",
-    price: "$6,000",
-    period: "USD one-time",
-    type: "Bootcamp",
+    title: "JSF 1-on-1 Mentorship Program",
+    price: "Apply",
+    period: "",
+    type: "Mentorship",
     description:
       "The most intensive offering from JS Financials. Six months of 3x weekly calls, a full video series, daily macro reports, live model walkthroughs, personalised weekly content, and a fully built trading model by the end.",
     features: [
@@ -102,7 +102,7 @@ const products = [
       "Discord access & 300+ learning documents",
     ],
     href: "/products/bootcamp",
-    cta: "Enrol Now",
+    cta: "Apply Now",
     highlight: true,
   },
 ];

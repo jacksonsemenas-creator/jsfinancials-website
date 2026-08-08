@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "6-Month Quantitative Trading Bootcamp",
+  title: "1-on-1 Mentorship Program",
   description:
     "The most intensive offering from JS Financials. 6 months of 3x weekly calls, video series, daily macro reports, model walkthroughs, and a fully built trading model by the end.",
 };
@@ -21,7 +21,7 @@ const included = [
   {
     title: "Daily Macro Reports",
     description:
-      "Full subscription to the JSF Daily Macroeconomic Reports included for the duration of the bootcamp.",
+      "Full subscription to the JSF Daily Macroeconomic Reports included for the duration of the program.",
   },
   {
     title: "Model Walkthroughs",
@@ -41,7 +41,7 @@ const included = [
   {
     title: "Discord Access",
     description:
-      "Full access to the JSF Quantitative Trading Discord community for the duration of the bootcamp and beyond.",
+      "Full access to the JSF Quantitative Trading Discord community for the duration of the mentorship and beyond.",
   },
   {
     title: "300+ Learning Documents",
@@ -71,7 +71,7 @@ const timeline = [
   },
 ];
 
-export default function BootcampPage() {
+export default function MentorshipPage() {
   return (
     <>
       {/* Hero */}
@@ -82,7 +82,7 @@ export default function BootcampPage() {
               Most Intensive
             </div>
             <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white mb-4">
-              6-Month Quantitative Trading Bootcamp
+              1-on-1 Mentorship Program
             </h1>
             <p className="text-gray-300 text-lg leading-relaxed mb-8">
               The most comprehensive, hands-on program from JS Financials. Six
@@ -91,44 +91,30 @@ export default function BootcampPage() {
               deliverables — all building toward a fully developed trading model
               that has checked every box.
             </p>
-            <div className="flex flex-wrap items-center gap-6 mb-8">
-              <div>
-                <span className="text-4xl font-bold text-white">$6,000</span>
-                <span className="text-gray-400 ml-2">USD one-time</span>
-              </div>
-              <div className="flex items-center gap-2 text-gold text-sm">
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                6 months &middot; 3x calls/week
-              </div>
+            <div className="flex items-center gap-2 text-gold text-sm mb-8">
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              6 months &middot; 3x calls/week &middot; Fully personalised
             </div>
             <div className="flex flex-wrap gap-4">
-              <a
-                href="https://buy.stripe.com/14A3cxcqLeIP59m2Jm6J203"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors"
-              >
-                Enrol Now
-              </a>
               <a
                 href="https://calendly.com/jsfinancialsaustralia/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-3 border border-white/20 text-white hover:border-gold hover:text-gold rounded-lg transition-colors"
+                className="inline-flex items-center px-8 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors"
               >
-                Book a Call First
+                Apply Now
               </a>
             </div>
           </div>
@@ -193,7 +179,7 @@ export default function BootcampPage() {
             Ready to Go All In?
           </h2>
           <p className="text-gray-300 mb-4">
-            The bootcamp is the most intensive path to building a real,
+            The mentorship is the most intensive path to building a real,
             quantitative trading operation. Six months from now, you&apos;ll
             have a validated model, a structured process, and the skills to
             keep improving independently.
@@ -204,20 +190,12 @@ export default function BootcampPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://buy.stripe.com/14A3cxcqLeIP59m2Jm6J203"
+              href="https://calendly.com/jsfinancialsaustralia/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors"
             >
-              Enrol Now — $6,000 USD
-            </a>
-            <a
-              href="https://calendly.com/jsfinancialsaustralia/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-3 border border-white/20 text-white hover:border-gold hover:text-gold rounded-lg transition-colors"
-            >
-              Book a 30-Min Call
+              Apply Now
             </a>
             <Link
               href="/products"
