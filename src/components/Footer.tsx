@@ -117,6 +117,17 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+            <a
+              href="https://kalshi.com/p/Semenas"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 text-sm text-gray-500 hover:text-gold transition-colors"
+            >
+              Trade on Kalshi
+            </a>
+            <p className="text-[11px] text-gray-600 mt-1">
+              Affiliate link
+            </p>
           </div>
         </div>
 
