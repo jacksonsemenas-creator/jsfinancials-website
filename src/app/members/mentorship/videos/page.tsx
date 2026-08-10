@@ -1,14 +1,17 @@
-import { getProfile } from "@/lib/portal";
+import { getUser } from "@/lib/entitlements";
 import { createClient } from "@/lib/supabase/server";
+import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Video Library | Mentorship Portal",
+  title: "Video Library | Mentorship",
 };
 
 export default async function VideosPage() {
-  await getProfile();
+  const user = await getUser();
+  if (!user) redirect("/login");
+
   const supabase = await createClient();
 
   const { data: videos } = await supabase
@@ -32,15 +35,15 @@ export default async function VideosPage() {
             {videos.map((video) => (
               <Link
                 key={video.id}
-                href={`/portal/videos/${video.id}`}
-                className="border border-[#C9A84C]/10 rounded-xl p-5 bg-[#0d1a2e] hover:border-[#C9A84C]/30 transition-colors group"
+                href={`/members/mentorship/videos/${video.id}`}
+                className="border border-gold/10 rounded-xl p-5 bg-navy-light hover:border-gold/30 transition-colors group"
               >
                 <div className="flex items-center gap-3 mb-2">
-                  <svg className="w-5 h-5 text-[#C9A84C]/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-gold/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <p className="text-white text-sm font-medium group-hover:text-[#C9A84C] transition-colors">
+                  <p className="text-white text-sm font-medium group-hover:text-gold transition-colors">
                     {video.title}
                   </p>
                 </div>
@@ -53,7 +56,7 @@ export default async function VideosPage() {
             ))}
           </div>
         ) : (
-          <div className="border border-white/5 rounded-xl p-8 text-center bg-[#0d1a2e]">
+          <div className="border border-gold/10 rounded-xl p-8 text-center bg-navy-light">
             <p className="text-gray-500 text-sm">
               No videos have been unlocked yet. Video content will be added as
               you progress through the mentorship.

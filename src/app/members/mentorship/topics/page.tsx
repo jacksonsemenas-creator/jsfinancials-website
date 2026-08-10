@@ -1,14 +1,17 @@
-import { getProfile } from "@/lib/portal";
+import { getUser } from "@/lib/entitlements";
 import { createClient } from "@/lib/supabase/server";
+import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Topic Documents | Mentorship Portal",
+  title: "Topic Documents | Mentorship",
 };
 
 export default async function TopicsPage() {
-  await getProfile();
+  const user = await getUser();
+  if (!user) redirect("/login");
+
   const supabase = await createClient();
 
   const { data: topics } = await supabase
@@ -32,11 +35,11 @@ export default async function TopicsPage() {
             {topics.map((topic) => (
               <Link
                 key={topic.id}
-                href={`/portal/topics/${topic.id}`}
-                className="flex items-center justify-between border border-[#C9A84C]/10 rounded-lg px-5 py-3.5 bg-[#0d1a2e] hover:border-[#C9A84C]/30 transition-colors group"
+                href={`/members/mentorship/topics/${topic.id}`}
+                className="flex items-center justify-between border border-gold/10 rounded-lg px-5 py-3.5 bg-navy-light hover:border-gold/30 transition-colors group"
               >
                 <div>
-                  <p className="text-white text-sm font-medium group-hover:text-[#C9A84C] transition-colors">
+                  <p className="text-white text-sm font-medium group-hover:text-gold transition-colors">
                     {topic.title}
                   </p>
                   {topic.description && (
@@ -45,14 +48,14 @@ export default async function TopicsPage() {
                     </p>
                   )}
                 </div>
-                <svg className="w-4 h-4 text-gray-600 group-hover:text-[#C9A84C] shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-gray-600 group-hover:text-gold shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
             ))}
           </div>
         ) : (
-          <div className="border border-white/5 rounded-xl p-8 text-center bg-[#0d1a2e]">
+          <div className="border border-gold/10 rounded-xl p-8 text-center bg-navy-light">
             <p className="text-gray-500 text-sm">
               No topic documents have been unlocked yet. These will appear as
               Jackson assigns them during your mentorship.

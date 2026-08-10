@@ -1,17 +1,27 @@
-import { getProfile } from "@/lib/portal";
+import { getUser } from "@/lib/entitlements";
 import { createClient } from "@/lib/supabase/server";
+import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Period Documents | Mentorship Portal",
+  title: "Period Documents | Mentorship",
 };
 
 export default async function PeriodsPage() {
-  const profile = await getProfile();
+  const user = await getUser();
+  if (!user) redirect("/login");
+
   const supabase = await createClient();
 
-  // Get all period docs the client has access to
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("id, role")
+    .eq("id", user.id)
+    .single();
+
+  if (!profile) redirect("/members");
+
   const { data: accessRows } = await supabase
     .from("client_access")
     .select("content_id")
@@ -19,14 +29,12 @@ export default async function PeriodsPage() {
 
   const accessIds = new Set((accessRows ?? []).map((r) => r.content_id));
 
-  // Get all period_doc content items (admin sees all, client sees unlocked via RLS)
   const { data: periodDocs } = await supabase
     .from("content_items")
     .select("id, title, description, period, storage_path")
     .eq("type", "period_doc")
     .order("period", { ascending: true });
 
-  // Build a grid of 12 periods
   const periods = Array.from({ length: 12 }, (_, i) => {
     const num = i + 1;
     const doc = periodDocs?.find((d) => d.period === num);
@@ -49,13 +57,13 @@ export default async function PeriodsPage() {
           <div key={p.num}>
             {p.unlocked && p.doc ? (
               <Link
-                href={`/portal/periods/${p.doc.id}`}
-                className="block border border-[#C9A84C]/20 rounded-xl p-5 bg-[#0d1a2e] hover:border-[#C9A84C]/50 transition-colors group"
+                href={`/members/mentorship/periods/${p.doc.id}`}
+                className="block border border-gold/20 rounded-xl p-5 bg-navy-light hover:border-gold/50 transition-colors group"
               >
-                <p className="text-xs text-[#C9A84C] uppercase tracking-widest mb-1">
+                <p className="text-xs text-gold uppercase tracking-widest mb-1">
                   Period {p.num}
                 </p>
-                <p className="text-white font-heading font-semibold text-sm group-hover:text-[#C9A84C] transition-colors">
+                <p className="text-white font-heading font-semibold text-sm group-hover:text-gold transition-colors">
                   {p.doc.title}
                 </p>
                 {p.doc.description && (
@@ -65,7 +73,7 @@ export default async function PeriodsPage() {
                 )}
               </Link>
             ) : (
-              <div className="border border-white/5 rounded-xl p-5 bg-[#0d1a2e]/50 opacity-50">
+              <div className="border border-white/5 rounded-xl p-5 bg-navy-light/50 opacity-50">
                 <p className="text-xs text-gray-600 uppercase tracking-widest mb-1">
                   Period {p.num}
                 </p>

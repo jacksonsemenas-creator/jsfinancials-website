@@ -18,12 +18,22 @@ const navItems = [
   { href: "/members/account", label: "Account", icon: AccountIcon },
 ];
 
+const mentorshipItems = [
+  { href: "/members/mentorship", label: "Mentorship Home", icon: DashboardIcon },
+  { href: "/members/mentorship/periods", label: "Period Docs", icon: CourseIcon },
+  { href: "/members/mentorship/topics", label: "Topic Docs", icon: LibraryIcon },
+  { href: "/members/mentorship/modules", label: "Modules", icon: ChartIcon },
+  { href: "/members/mentorship/videos", label: "Videos", icon: ReportsIcon },
+];
+
 export default function MembersSidebar({
   firstName,
   isAdmin,
+  hasMentorship,
 }: {
   firstName: string;
   isAdmin: boolean;
+  hasMentorship?: boolean;
 }) {
   const pathname = usePathname();
   const router = useRouter();
@@ -48,17 +58,11 @@ export default function MembersSidebar({
       </div>
 
       <nav className="flex-1 px-3 py-4 space-y-1">
-        {(isAdmin
-          ? [
-              ...navItems,
-              { href: "/members/admin", label: "Content Manager", icon: AdminIcon },
-            ]
-          : navItems
-        ).map((item) => {
+        {navItems.map((item) => {
           const isActive =
             item.href === "/members"
               ? pathname === "/members"
-              : pathname.startsWith(item.href);
+              : pathname.startsWith(item.href) && !pathname.startsWith("/members/mentorship");
           return (
             <Link
               key={item.href}
@@ -75,6 +79,71 @@ export default function MembersSidebar({
             </Link>
           );
         })}
+
+        {hasMentorship && (
+          <>
+            <div className="pt-4 pb-2 px-3">
+              <p className="text-xs text-gray-600 uppercase tracking-widest">
+                Mentorship
+              </p>
+            </div>
+            {mentorshipItems.map((item) => {
+              const isActive =
+                item.href === "/members/mentorship"
+                  ? pathname === "/members/mentorship"
+                  : pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
+                    isActive
+                      ? "bg-gold/10 text-gold"
+                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  <item.icon active={isActive} />
+                  {item.label}
+                </Link>
+              );
+            })}
+          </>
+        )}
+
+        {isAdmin && (
+          <>
+            <div className="pt-4 pb-2 px-3">
+              <p className="text-xs text-gray-600 uppercase tracking-widest">
+                Admin
+              </p>
+            </div>
+            {[
+              { href: "/members/admin", label: "Product Content", icon: AdminIcon },
+              { href: "/admin", label: "Mentorship Admin", icon: AdminIcon },
+              { href: "/admin/content", label: "Mentorship Content", icon: CourseIcon },
+              { href: "/admin/clients", label: "Client Manager", icon: AccountIcon },
+              { href: "/admin/announcements", label: "Announcements", icon: ReportsIcon },
+            ].map((item) => {
+              const isActive = pathname === item.href || (item.href !== "/admin" && pathname.startsWith(item.href));
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
+                    isActive
+                      ? "bg-gold/10 text-gold"
+                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  <item.icon active={isActive} />
+                  {item.label}
+                </Link>
+              );
+            })}
+          </>
+        )}
       </nav>
 
       <div className="px-3 py-4 border-t border-gold/10">

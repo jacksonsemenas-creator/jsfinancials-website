@@ -1,18 +1,42 @@
-import { getProfile } from "@/lib/portal";
+import { getUser } from "@/lib/entitlements";
 import { createClient } from "@/lib/supabase/server";
+import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Dashboard | Mentorship Portal",
+  title: "Mentorship Dashboard",
 };
 
-export default async function PortalDashboard() {
-  const profile = await getProfile();
+export default async function MentorshipDashboard() {
+  const user = await getUser();
+  if (!user) redirect("/login");
+
   const supabase = await createClient();
+
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("id", user.id)
+    .single();
+
+  if (!profile) {
+    return (
+      <div>
+        <h1 className="text-2xl font-heading font-bold text-white tracking-wide">
+          1-on-1 Mentorship
+        </h1>
+        <div className="mt-8 border border-gold/10 rounded-xl p-8 text-center bg-navy-light">
+          <p className="text-gray-400 text-sm">
+            You do not have an active mentorship enrolment. If you believe this
+            is an error, contact hello@jsfinancials.com.au.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   const firstName = profile.full_name?.split(" ")[0] ?? "there";
 
-  // Fetch progress stats
   const [
     { count: completedCount },
     { count: unlockedCount },
@@ -48,12 +72,11 @@ export default async function PortalDashboard() {
       </p>
 
       <div className="grid sm:grid-cols-2 gap-6 mt-8">
-        {/* Current Period */}
-        <div className="border border-[#C9A84C]/20 rounded-xl p-6 bg-[#0d1a2e]">
+        <div className="border border-gold/20 rounded-xl p-6 bg-navy-light">
           <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">
             Current Period
           </p>
-          <p className="text-4xl font-heading font-bold text-[#C9A84C]">
+          <p className="text-4xl font-heading font-bold text-gold">
             {profile.current_period}
           </p>
           <p className="text-gray-400 text-sm mt-1">of 12 periods</p>
@@ -64,8 +87,7 @@ export default async function PortalDashboard() {
           )}
         </div>
 
-        {/* Progress */}
-        <div className="border border-[#C9A84C]/20 rounded-xl p-6 bg-[#0d1a2e]">
+        <div className="border border-gold/20 rounded-xl p-6 bg-navy-light">
           <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">
             Progress
           </p>
@@ -77,16 +99,15 @@ export default async function PortalDashboard() {
           </p>
           <div className="mt-3 h-2 bg-white/10 rounded-full overflow-hidden">
             <div
-              className="h-full bg-[#C9A84C] rounded-full transition-all"
+              className="h-full bg-gold rounded-full transition-all"
               style={{ width: `${progressPct}%` }}
             />
           </div>
         </div>
       </div>
 
-      {/* Latest Announcement */}
       {latestAnnouncement && (
-        <div className="mt-8 border border-[#C9A84C]/20 rounded-xl p-6 bg-[#0d1a2e]">
+        <div className="mt-8 border border-gold/20 rounded-xl p-6 bg-navy-light">
           <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">
             Latest Announcement
           </p>
