@@ -24,6 +24,7 @@ const mentorshipItems = [
   { href: "/members/mentorship/topics", label: "Topic Docs", icon: LibraryIcon },
   { href: "/members/mentorship/modules", label: "Modules", icon: ChartIcon },
   { href: "/members/mentorship/videos", label: "Videos", icon: ReportsIcon },
+  { href: "/members/mentorship/submissions", label: "Submissions", icon: AdminIcon },
 ];
 
 export default function MembersSidebar({
@@ -123,6 +124,7 @@ export default function MembersSidebar({
               { href: "/admin", label: "Mentorship Admin", icon: AdminIcon },
               { href: "/admin/content", label: "Mentorship Content", icon: CourseIcon },
               { href: "/admin/clients", label: "Client Manager", icon: AccountIcon },
+              { href: "/admin/submissions", label: "Submissions Queue", icon: AdminIcon },
               { href: "/admin/announcements", label: "Announcements", icon: ReportsIcon },
             ].map((item) => {
               const isActive = pathname === item.href || (item.href !== "/admin" && pathname.startsWith(item.href));
