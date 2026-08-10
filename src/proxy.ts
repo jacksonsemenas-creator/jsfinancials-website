@@ -38,6 +38,12 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(loginUrl);
   }
 
+  if ((pathname.startsWith("/portal") || pathname.startsWith("/admin")) && !pathname.startsWith("/portal/login") && !user) {
+    const loginUrl = new URL("/portal/login", request.url);
+    loginUrl.searchParams.set("redirect", pathname);
+    return NextResponse.redirect(loginUrl);
+  }
+
   return supabaseResponse;
 }
 
