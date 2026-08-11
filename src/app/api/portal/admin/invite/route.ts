@@ -24,39 +24,64 @@ export async function POST(request: Request) {
   }
 
   const admin = createAdminClient();
+  let userId: string;
 
-  // Create user via admin API (sends invite email)
+  // Try to create user, handle "already exists" gracefully
   const { data: newUser, error: createError } =
     await admin.auth.admin.createUser({
       email,
-      email_confirm: false,
+      email_confirm: true,
       user_metadata: { full_name: fullName },
     });
 
   if (createError) {
-    return Response.json({ error: createError.message }, { status: 400 });
+    if (
+      createError.message.includes("already been registered") ||
+      createError.status === 422
+    ) {
+      // User exists, find them
+      let page = 1;
+      let found: string | undefined;
+      while (!found) {
+        const { data: batch } = await admin.auth.admin.listUsers({
+          page,
+          perPage: 500,
+        });
+        if (!batch?.users.length) break;
+        found = batch.users.find(
+          (u) => u.email?.toLowerCase() === email.toLowerCase()
+        )?.id;
+        page++;
+      }
+      if (!found) {
+        return Response.json(
+          { error: "User exists but could not be found" },
+          { status: 400 }
+        );
+      }
+      userId = found;
+    } else {
+      return Response.json({ error: createError.message }, { status: 400 });
+    }
+  } else {
+    userId = newUser.user.id;
   }
 
-  // Create profile
-  const { error: profileError } = await admin.from("profiles").insert({
-    id: newUser.user.id,
-    full_name: fullName || null,
-    role: "client",
-    track: track || null,
-  });
+  // Create or update profile
+  const { error: profileError } = await admin.from("profiles").upsert(
+    {
+      id: userId,
+      full_name: fullName || null,
+      role: "client",
+      track: track || null,
+      current_period: 1,
+    },
+    { onConflict: "id" }
+  );
 
   if (profileError) {
     return Response.json({ error: profileError.message }, { status: 400 });
   }
 
-  // Send password reset so client can set their password
-  await admin.auth.admin.generateLink({
-    type: "invite",
-    email,
-    options: {
-      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://jsfinancials.com.au"}/auth/callback?next=/portal`,
-    },
-  });
-
-  return Response.json({ ok: true, userId: newUser.user.id });
+  return Response.json({ ok: true, userId });
 }
