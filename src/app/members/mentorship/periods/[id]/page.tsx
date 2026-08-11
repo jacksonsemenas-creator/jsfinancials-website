@@ -2,6 +2,7 @@ import { getUser } from "@/lib/entitlements";
 import { createClient } from "@/lib/supabase/server";
 import { redirect, notFound } from "next/navigation";
 import ContentViewer from "@/app/members/mentorship/ContentViewer";
+import PeriodFiles from "./PeriodFiles";
 
 export default async function PeriodDetailPage(props: {
   params: Promise<{ id: string }>;
@@ -21,6 +22,14 @@ export default async function PeriodDetailPage(props: {
 
   if (!item) notFound();
 
+  // Get associated data files for this period
+  const { data: dataFiles } = await supabase
+    .from("content_items")
+    .select("id, title, storage_path")
+    .eq("type", "resource")
+    .eq("period", item.period)
+    .order("sort_order", { ascending: true });
+
   const { data: progress } = await supabase
     .from("progress_items")
     .select("id")
@@ -29,10 +38,16 @@ export default async function PeriodDetailPage(props: {
     .limit(1);
 
   return (
-    <ContentViewer
-      item={item}
-      clientId={user.id}
-      completed={!!progress?.length}
-    />
+    <div>
+      <ContentViewer
+        item={item}
+        clientId={user.id}
+        completed={!!progress?.length}
+      />
+
+      {dataFiles && dataFiles.length > 0 && (
+        <PeriodFiles files={dataFiles} />
+      )}
+    </div>
   );
 }
