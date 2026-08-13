@@ -35,6 +35,12 @@ export default async function PeriodsPage() {
     .eq("type", "period_doc")
     .order("period", { ascending: true });
 
+  // Separate syllabus (period 0) from numbered periods
+  const syllabus = periodDocs?.find((d) => d.period === 0);
+  const syllabusUnlocked = syllabus
+    ? accessIds.has(syllabus.id) || profile.role === "admin"
+    : false;
+
   const periods = Array.from({ length: 12 }, (_, i) => {
     const num = i + 1;
     const doc = periodDocs?.find((d) => d.period === num);
@@ -52,7 +58,27 @@ export default async function PeriodsPage() {
         progress through the mentorship.
       </p>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+      {/* Syllabus card */}
+      {syllabus && syllabusUnlocked && (
+        <Link
+          href={`/members/mentorship/periods/${syllabus.id}`}
+          className="block border-2 border-gold/30 rounded-xl p-5 bg-navy-light hover:border-gold/60 transition-colors group mt-8 mb-4"
+        >
+          <p className="text-xs text-gold uppercase tracking-widest mb-1">
+            Master Syllabus
+          </p>
+          <p className="text-white font-heading font-semibold text-sm group-hover:text-gold transition-colors">
+            {syllabus.title}
+          </p>
+          {syllabus.description && (
+            <p className="text-gray-500 text-xs mt-1.5">
+              {syllabus.description}
+            </p>
+          )}
+        </Link>
+      )}
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         {periods.map((p) => (
           <div key={p.num}>
             {p.unlocked && p.doc ? (
