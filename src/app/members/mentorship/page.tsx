@@ -71,6 +71,78 @@ export default async function MentorshipDashboard() {
         Your mentorship dashboard. Period {profile.current_period} of 12.
       </p>
 
+      {/* Start Here card for new clients */}
+      {profile.current_period === 1 && completed === 0 && (
+        <div className="mt-8 border-2 border-gold/40 rounded-xl p-6 bg-gold/5">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-8 rounded-full bg-gold/20 flex items-center justify-center">
+              <svg className="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </div>
+            <h2 className="text-white font-heading font-semibold text-lg">
+              Start Here
+            </h2>
+          </div>
+          <p className="text-gray-300 text-sm leading-relaxed mb-5">
+            Welcome to the mentorship. Here is how to get started. Read the
+            syllabus first to understand the full 12-period structure, then open
+            Period 1 and work through it before your next call. Submit your work
+            through the Submissions tab when you are ready for feedback.
+          </p>
+          <div className="space-y-2">
+            <a
+              href="/members/mentorship/periods"
+              className="flex items-center gap-3 px-4 py-3 rounded-lg bg-navy-light border border-gold/20 hover:border-gold/40 transition-colors group"
+            >
+              <span className="w-6 h-6 rounded-full bg-gold/10 text-gold text-xs font-bold flex items-center justify-center shrink-0">
+                1
+              </span>
+              <div>
+                <p className="text-white text-sm font-medium group-hover:text-gold transition-colors">
+                  Read the Master Syllabus
+                </p>
+                <p className="text-gray-500 text-xs">
+                  Understand the full curriculum and what each period covers.
+                </p>
+              </div>
+            </a>
+            <a
+              href="/members/mentorship/periods"
+              className="flex items-center gap-3 px-4 py-3 rounded-lg bg-navy-light border border-gold/20 hover:border-gold/40 transition-colors group"
+            >
+              <span className="w-6 h-6 rounded-full bg-gold/10 text-gold text-xs font-bold flex items-center justify-center shrink-0">
+                2
+              </span>
+              <div>
+                <p className="text-white text-sm font-medium group-hover:text-gold transition-colors">
+                  Open Period 1
+                </p>
+                <p className="text-gray-500 text-xs">
+                  Download the document and companion data files. Work through the exercises.
+                </p>
+              </div>
+            </a>
+            <a
+              href="/members/mentorship/submissions"
+              className="flex items-center gap-3 px-4 py-3 rounded-lg bg-navy-light border border-gold/20 hover:border-gold/40 transition-colors group"
+            >
+              <span className="w-6 h-6 rounded-full bg-gold/10 text-gold text-xs font-bold flex items-center justify-center shrink-0">
+                3
+              </span>
+              <div>
+                <p className="text-white text-sm font-medium group-hover:text-gold transition-colors">
+                  Submit Your Work
+                </p>
+                <p className="text-gray-500 text-xs">
+                  Upload your code, notebooks, or write-ups for Jackson to review.
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      )}
+
       <div className="grid sm:grid-cols-2 gap-6 mt-8">
         <div className="border border-gold/20 rounded-xl p-6 bg-navy-light">
           <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">
