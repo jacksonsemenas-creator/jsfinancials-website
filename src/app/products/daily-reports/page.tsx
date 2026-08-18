@@ -101,12 +101,12 @@ export default function DailyReportsPage() {
                 Subscribe Now
               </a>
               <a
-                href="https://calendly.com/jsfinancialsaustralia/30min"
+                href="/files/sample-daily-report.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-3 border border-white/20 text-white hover:border-gold hover:text-gold rounded-lg transition-colors"
+                className="inline-flex items-center px-8 py-3 border border-gold/40 text-gold hover:bg-gold hover:text-navy rounded-lg transition-colors"
               >
-                Book a Call First
+                See a Sample Report
               </a>
             </div>
           </div>
@@ -218,12 +218,14 @@ export default function DailyReportsPage() {
             >
               Subscribe — $29.99/mo
             </a>
-            <Link
-              href="/products"
-              className="inline-flex items-center px-8 py-3 border border-white/20 text-white hover:border-gold hover:text-gold rounded-lg transition-colors"
+            <a
+              href="/files/sample-daily-report.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-8 py-3 border border-gold/40 text-gold hover:bg-gold hover:text-navy rounded-lg transition-colors"
             >
-              View All Products
-            </Link>
+              See a Sample Report
+            </a>
           </div>
         </div>
       </section>
