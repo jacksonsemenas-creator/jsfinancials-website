@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "How does the 1-on-1 Mentorship work?",
-    a: "You get three live calls per week with Jackson over six months via Google Meet. The curriculum starts with macro and quantitative foundations, moves into model development and Python coding, and finishes with statistical validation and live deployment. By the end, you will have built a fully backtested, institutional-standard trading model. You also get the Daily Reports, Discord access, and 300+ learning documents included. Apply via a free call to discuss fit and goals.",
+    a: "You get three live calls per week with Jackson over six months via Google Meet. The curriculum is 89 documents across three tiers: twelve period documents (the spine), fifty-five topic documents across eight clusters (the shelf), and twenty applicability modules in four arcs (the workflows). Every period includes companion datasets. You also get the Daily Reports, Discord, Prediction Markets Course, and Macro Course included. Apply via a free call to discuss fit and goals.",
   },
   {
     q: "I am not sure which product is right for me. Can I get advice?",

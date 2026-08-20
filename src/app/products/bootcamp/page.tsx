@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "1-on-1 Mentorship Program",
   description:
-    "The most intensive offering from JS Financials. 6 months of 1-on-1 mentorship with Jackson Semenas. 12 structured periods, 58 topic documents, 20 applicability modules, video walkthroughs, daily macro reports, and a fully built trading model.",
+    "The most intensive offering from JS Financials. 6 months of 1-on-1 mentorship with Jackson Semenas. 89 curriculum documents across three tiers: 12 period documents, 55 topic documents, and 20 applicability modules.",
 };
 
 const included = [
@@ -16,17 +16,17 @@ const included = [
   {
     title: "12 Period Documents",
     description:
-      "A structured, 12-period curriculum covering foundations through live deployment. Each period includes companion datasets for hands-on exercises.",
+      "The spine of the curriculum. A structured 12-period sequence from foundations through to the capstone. Each period includes companion datasets for hands-on exercises.",
   },
   {
-    title: "58 Topic Documents",
+    title: "55 Topic Documents",
     description:
-      "A comprehensive reference library spanning statistics, econometrics, macroeconomics, market structure, risk, code infrastructure, and mathematics.",
+      "The shelf. A comprehensive reference library across eight clusters: statistics, data, econometrics, economics, markets, risk, coding, and mathematics.",
   },
   {
     title: "20 Applicability Modules",
     description:
-      "Step-by-step modules that bridge theory and practice. From filing your first hypothesis through to assembling a complete trading operation.",
+      "The workflows. Step-by-step modules in four arcs that bridge theory and practice, from filing your first hypothesis through to the capstone assembly.",
   },
   {
     title: "Video Walkthroughs",
@@ -51,7 +51,7 @@ const included = [
   {
     title: "Discord Community",
     description:
-      "Full access to the JSF Quantitative Trading Discord. Live signals, macro discussion, strategy development, and direct Q&A with Jackson.",
+      "Full access to the JSF Quantitative Trading Discord. Live signals, macro discussion, strategy development, and direct access to Jackson.",
   },
   {
     title: "Build Your Own Model",
@@ -70,59 +70,73 @@ const included = [
   },
 ];
 
-const topicCategories = [
-  { label: "Statistical Methods", count: 12, examples: "Distributions, stationarity, autocorrelation, hypothesis testing, bootstrap, Bayesian inference, regression, robust statistics" },
+const topicClusters = [
+  { label: "Statistics", count: 9, examples: "Distributions, stationarity, autocorrelation, hypothesis testing, bootstrap, Bayesian inference, regression, robust statistics" },
   { label: "Data", count: 5, examples: "Data sources, cleaning protocols, bias catalog, feature engineering, alternative data evaluation" },
-  { label: "Econometric Models", count: 8, examples: "ARMA/ARIMA, GARCH, cointegration, VAR, regime switching, structural breaks, Kalman filters, panel data" },
-  { label: "Macroeconomics", count: 7, examples: "Growth cycles, inflation, monetary policy, fiscal policy, FX, labour markets, commodities" },
-  { label: "Market Structure", count: 7, examples: "Yield curves, equity structure, credit, options, futures, crypto venues, participant flows" },
-  { label: "Risk Management", count: 4, examples: "Risk measurement, position sizing, hedging, operational and counterparty risk" },
-  { label: "Code and Infrastructure", count: 8, examples: "Python, Pandas, backtesting engines, data infrastructure, APIs, execution, deployment, monitoring" },
+  { label: "Econometrics", count: 8, examples: "ARMA/ARIMA, GARCH, cointegration, VAR, regime switching, structural breaks, Kalman filters, panel data" },
+  { label: "Economics and Macro", count: 7, examples: "Growth cycles, inflation, monetary policy, fiscal policy, FX, labour markets, commodities" },
+  { label: "Markets and Microstructure", count: 7, examples: "Yield curves, equity structure, credit, options, futures, crypto venues, participant flows" },
+  { label: "Risk and Portfolio", count: 4, examples: "Risk measurement, position sizing, hedging, operational and counterparty risk" },
+  { label: "Coding", count: 8, examples: "Python, Pandas, backtesting engines, data infrastructure, APIs, execution, deployment, monitoring" },
   { label: "Mathematics", count: 7, examples: "Linear algebra, probability, calculus, stochastic processes, information theory, numerical methods, algorithms" },
 ];
 
-const modules = [
-  "Filing a Strategy Hypothesis",
-  "Data Acquisition and Validation",
-  "The First Honest Backtest",
-  "Statistical Validation",
-  "The Kill or Continue Decision",
-  "Constructing the Sizing Policy",
-  "Designing the Execution Policy",
-  "Building the Live System",
-  "Paper Trading and the Graduation Ladder",
-  "Day One to Day Ninety",
-  "The Daily Process",
-  "The Drawdown Response Protocol",
-  "Decay Detection and Retirement",
-  "Adding a Second Strategy",
-  "Incident Response and Post-Mortems",
-  "Expressing a Macro View",
-  "Prediction Markets End to End",
-  "Operating on Crypto Venues",
-  "A Pairs Trade End to End",
-  "The Capstone Assembly",
+const moduleArcs = [
+  {
+    arc: "Arc 1: Idea to Evidence",
+    modules: [
+      "Filing a Strategy Hypothesis",
+      "Data Acquisition and Validation",
+      "The First Honest Backtest",
+      "Statistical Validation",
+      "The Kill-or-Continue Decision",
+    ],
+  },
+  {
+    arc: "Arc 2: Evidence to Production",
+    modules: [
+      "Constructing the Sizing Policy",
+      "Designing the Execution Policy",
+      "Building the Live System",
+      "Paper Trading and the Graduation Ladder",
+      "Day One to Day Ninety",
+    ],
+  },
+  {
+    arc: "Arc 3: Running the Book",
+    modules: [
+      "The Daily Process",
+      "The Drawdown Response Protocol",
+      "Decay Detection and Retirement",
+      "Adding a Second Strategy",
+      "Incident Response and Post-Mortems",
+    ],
+  },
+  {
+    arc: "Arc 4: Domain Applications",
+    modules: [
+      "Expressing a Macro View",
+      "Prediction Markets End to End",
+      "Operating on Crypto Venues",
+      "A Pairs Trade End to End",
+      "The Capstone Assembly",
+    ],
+  },
 ];
 
-const timeline = [
-  {
-    period: "Periods 1 to 4",
-    title: "Foundations",
-    description:
-      "Quantitative trading fundamentals, statistical foundations, probability and distributions, time series analysis and volatility modelling. Build the knowledge base everything else rests on.",
-  },
-  {
-    period: "Periods 5 to 8",
-    title: "Model Development",
-    description:
-      "Macroeconomic event analysis, signal design, strategy specification, backtesting frameworks, and data pipeline infrastructure. Start building your model.",
-  },
-  {
-    period: "Periods 9 to 12",
-    title: "Validation and Deployment",
-    description:
-      "Portfolio construction, risk management, execution and transaction costs, production deployment, monitoring, and the capstone. Finish with a validated, production-ready model.",
-  },
+const periods = [
+  "Foundations of Systematic Trading",
+  "Data",
+  "Statistical Foundations",
+  "Time Series and Econometrics",
+  "Economics as an Alpha Source",
+  "Strategy Design",
+  "Backtesting",
+  "Validation and Edge Decay",
+  "Portfolio Construction and Risk",
+  "Execution and Microstructure",
+  "Live Deployment",
+  "The Capstone",
 ];
 
 export default function MentorshipPage() {
@@ -140,10 +154,10 @@ export default function MentorshipPage() {
             </h1>
             <p className="text-gray-300 text-lg leading-relaxed mb-6">
               Six months of structured, 1-on-1 mentorship with Jackson Semenas.
-              A 12-period curriculum, 58 topic documents, 20 applicability
-              modules, video walkthroughs, daily macro reports, and every JS
-              Financials product included. You will build a fully validated
-              trading model by the end.
+              89 curriculum documents across three tiers: twelve period documents
+              (the spine), fifty-five topic documents (the shelf), and twenty
+              applicability modules (the workflows). Plus video walkthroughs,
+              daily macro reports, and every JS Financials product included.
             </p>
             <div className="flex flex-wrap items-center gap-6 mb-8">
               <div className="flex items-center gap-2 text-gold text-sm">
@@ -162,7 +176,7 @@ export default function MentorshipPage() {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                100+ documents
+                89 documents
               </div>
             </div>
             <a
@@ -183,7 +197,7 @@ export default function MentorshipPage() {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
             {[
               { stat: "12", label: "Period Documents" },
-              { stat: "58", label: "Topic Documents" },
+              { stat: "55", label: "Topic Documents" },
               { stat: "20", label: "Applicability Modules" },
               { stat: "40+", label: "Companion Datasets" },
               { stat: "72+", label: "Weekly Calls" },
@@ -209,8 +223,9 @@ export default function MentorshipPage() {
           </h2>
           <p className="text-gray-600 max-w-2xl mb-10">
             The mentorship is not a course. It is a structured, personalised
-            program with every resource you need to go from where you are now to
-            running a validated quantitative trading model.
+            program with 89 curriculum documents across three tiers, plus every
+            resource you need to go from where you are now to running a validated
+            quantitative trading model.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {included.map((item) => (
@@ -230,11 +245,38 @@ export default function MentorshipPage() {
         </div>
       </section>
 
-      {/* Topic Document Library */}
+      {/* The Spine: 12 Periods */}
       <section className="bg-gray-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-heading text-3xl font-bold text-navy mb-4">
-            58 Topic Documents Across 8 Categories
+            The Spine: 12 Period Documents
+          </h2>
+          <p className="text-gray-600 max-w-2xl mb-10">
+            The structured sequence that drives the mentorship forward. Each
+            period builds on the last and includes companion datasets for
+            hands-on work.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {periods.map((title, i) => (
+              <div
+                key={title}
+                className="flex items-start gap-3 bg-white border border-gray-200 rounded-xl px-5 py-4"
+              >
+                <span className="shrink-0 w-8 h-8 rounded-full bg-gold/10 text-gold text-sm font-bold flex items-center justify-center mt-0.5">
+                  {i + 1}
+                </span>
+                <p className="text-navy text-sm font-medium">{title}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Shelf: 55 Topic Documents */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-3xl font-bold text-navy mb-4">
+            The Shelf: 55 Topic Documents Across 8 Clusters
           </h2>
           <p className="text-gray-600 max-w-2xl mb-10">
             A standalone reference library covering every quantitative,
@@ -243,10 +285,10 @@ export default function MentorshipPage() {
             needed.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {topicCategories.map((cat) => (
+            {topicClusters.map((cat) => (
               <div
                 key={cat.label}
-                className="bg-white border border-gray-200 rounded-xl p-5"
+                className="bg-gray-50 border border-gray-200 rounded-xl p-5"
               >
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="font-heading font-semibold text-navy text-sm">
@@ -265,54 +307,44 @@ export default function MentorshipPage() {
         </div>
       </section>
 
-      {/* Applicability Modules */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-3xl font-bold text-navy mb-4">
-            20 Applicability Modules
-          </h2>
-          <p className="text-gray-600 max-w-2xl mb-10">
-            Theory means nothing without application. These modules walk you
-            through every step of building, validating, deploying, and operating
-            a real trading strategy.
-          </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {modules.map((title, i) => (
-              <div
-                key={title}
-                className="flex items-start gap-3 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3"
-              >
-                <span className="shrink-0 w-7 h-7 rounded-full bg-gold/10 text-gold text-xs font-bold flex items-center justify-center mt-0.5">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="text-navy text-sm font-medium">{title}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6-Month Roadmap */}
+      {/* The Workflows: 20 Applicability Modules */}
       <section className="bg-gray-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-3xl font-bold text-navy mb-10">
-            6-Month Roadmap
+          <h2 className="font-heading text-3xl font-bold text-navy mb-4">
+            The Workflows: 20 Applicability Modules
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {timeline.map((phase) => (
-              <div
-                key={phase.period}
-                className="bg-white border border-gray-200 rounded-2xl p-8"
-              >
-                <span className="text-gold font-mono text-sm font-medium">
-                  {phase.period}
-                </span>
-                <h3 className="font-heading text-xl font-semibold text-navy mt-2 mb-3">
-                  {phase.title}
+          <p className="text-gray-600 max-w-2xl mb-10">
+            Theory means nothing without application. Four arcs walk you through
+            every step of building, validating, deploying, and operating a real
+            trading strategy.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-8">
+            {moduleArcs.map((arc) => (
+              <div key={arc.arc}>
+                <h3 className="text-gold text-xs uppercase tracking-widest font-semibold mb-3">
+                  {arc.arc}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {phase.description}
-                </p>
+                <div className="space-y-2">
+                  {arc.modules.map((title, i) => {
+                    const globalIndex =
+                      moduleArcs
+                        .slice(0, moduleArcs.indexOf(arc))
+                        .reduce((sum, a) => sum + a.modules.length, 0) +
+                      i +
+                      1;
+                    return (
+                      <div
+                        key={title}
+                        className="flex items-start gap-3 bg-white border border-gray-200 rounded-xl px-4 py-3"
+                      >
+                        <span className="shrink-0 w-7 h-7 rounded-full bg-gold/10 text-gold text-xs font-bold flex items-center justify-center mt-0.5">
+                          {String(globalIndex).padStart(2, "0")}
+                        </span>
+                        <p className="text-navy text-sm font-medium">{title}</p>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             ))}
           </div>
@@ -344,7 +376,7 @@ export default function MentorshipPage() {
               },
               {
                 title: "Discord Community",
-                description: "Private quantitative trading community. Live model signals, macro discussion, strategy development, code sharing, and direct access to Jackson.",
+                description: "Private quantitative trading community. Live signals, macro discussion, strategy development, code sharing, and direct access to Jackson.",
                 href: null,
               },
             ].map((item) => (

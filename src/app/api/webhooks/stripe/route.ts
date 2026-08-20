@@ -148,7 +148,7 @@ function getMentorshipEmail(name: string) {
           <ol style="color: #333; font-size: 16px; line-height: 1.8; padding-left: 20px;">
             <li>I'll reach out within 24 hours to schedule our first session and discuss your goals</li>
             <li>You'll receive access to your private Discord channel</li>
-            <li>You'll get access to the full library of 300+ learning documents</li>
+            <li>You'll get access to the full 89-document mentorship curriculum</li>
             <li>We'll design your personalised curriculum based on your experience and objectives</li>
           </ol>
           <p style="color: #333; font-size: 16px; line-height: 1.6;">

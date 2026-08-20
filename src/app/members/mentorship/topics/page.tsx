@@ -9,13 +9,13 @@ export const metadata: Metadata = {
 };
 
 const GROUPS = [
-  { label: "Statistical Methods", min: 1, max: 19 },
+  { label: "Statistics", min: 1, max: 19 },
   { label: "Data", min: 20, max: 29 },
-  { label: "Econometric Models", min: 30, max: 39 },
-  { label: "Macroeconomics", min: 40, max: 49 },
-  { label: "Market Structure", min: 50, max: 59 },
-  { label: "Risk Management", min: 60, max: 69 },
-  { label: "Code and Infrastructure", min: 70, max: 79 },
+  { label: "Econometrics", min: 30, max: 39 },
+  { label: "Economics and Macro", min: 40, max: 49 },
+  { label: "Markets and Microstructure", min: 50, max: 59 },
+  { label: "Risk and Portfolio", min: 60, max: 69 },
+  { label: "Coding", min: 70, max: 79 },
   { label: "Mathematics", min: 80, max: 89 },
 ];
 

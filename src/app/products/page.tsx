@@ -23,7 +23,7 @@ const products = [
       "Live model walkthroughs & development",
       "Personalised content delivered weekly",
       "Build a validated trading model together",
-      "Discord access & 300+ learning documents",
+      "Discord access and full 89-document curriculum",
     ],
     href: "/products/bootcamp",
     cta: "Apply Now",
