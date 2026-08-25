@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Client Intake | JS Financials Mentorship</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0A1628;
+    --navy-soft: #14243D;
+    --gold: #C9A84C;
+    --ink: #1A1A1A;
+    --mute: #6B7280;
+    --paper: #FAFAF8;
+    --field: #FFFFFF;
+    --line: #DDD9CE;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    font-family: "Poppins", -apple-system, sans-serif;
+    font-weight: 300;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* header band */
+  .band {
+    background: var(--navy);
+    color: #fff;
+    padding: 52px 24px 44px;
+  }
+  .band-inner { max-width: 640px; margin: 0 auto; }
+  .wordmark {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 26px;
+  }
+  h1 {
+    font-family: "Lora", Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(30px, 5.5vw, 40px);
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .band p {
+    color: #C7CEDA;
+    max-width: 52ch;
+    font-size: 14.5px;
+  }
+  .band p strong { color: #fff; font-weight: 500; }
+
+  /* form body */
+  main { max-width: 640px; margin: 0 auto; padding: 14px 24px 90px; }
+
+  .section { margin-top: 44px; }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+  }
+  .sec-num {
+    margin-right: 14px;
+    font-family: "Lora", Georgia, serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 26px;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .sec-title {
+    font-family: "Lora", Georgia, serif;
+    font-weight: 600;
+    font-size: 19px;
+    color: var(--navy);
+  }
+  .sec-note { color: var(--mute); font-size: 13px; margin-bottom: 22px; }
+
+  .row { margin-top: 20px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+
+  label {
+    display: block;
+    font-weight: 500;
+    font-size: 13.5px;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .opt {
+    color: var(--mute);
+    font-weight: 400;
+    font-size: 12px;
+  }
+  .hint { display: block; color: var(--mute); font-size: 12.5px; font-weight: 300; margin-top: -2px; margin-bottom: 6px; }
+
+  input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 14.5px;
+    color: var(--ink);
+    background: var(--field);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 11px 12px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  textarea { min-height: 96px; resize: vertical; }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.22);
+  }
+  select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236B7280'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 34px; }
+
+  .submit-block { margin-top: 52px; border-top: 2px solid var(--navy); padding-top: 26px; }
+  .submit-note { color: var(--mute); font-size: 13px; margin-bottom: 18px; max-width: 54ch; }
+  button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    color: var(--navy);
+    background: var(--gold);
+    border: none;
+    border-radius: 4px;
+    padding: 14px 34px;
+    cursor: pointer;
+    transition: filter 0.15s ease;
+  }
+  button:hover { filter: brightness(1.06); }
+  button:focus-visible { outline: 3px solid var(--navy); outline-offset: 2px; }
+
+  .foot {
+    margin-top: 34px;
+    color: var(--mute);
+    font-size: 12px;
+  }
+  .gotcha { display: none; }
+</style>
+</head>
+<body>
+
+<header class="band">
+  <div class="band-inner">
+    <div class="wordmark">JS Financials</div>
+    <h1>Client intake</h1>
+    <p>Your first filed document. Ten minutes, four sections. This is read in full before your kickoff call, so the call is spent on <strong>your situation</strong> rather than on collecting it. Nothing here is judged; all of it is used.</p>
+  </div>
+</header>
+
+<main>
+  <!-- Formspree endpoint: live -->
+  <form action="https://formspree.io/f/xkjwlbkb" method="POST">
+    <input type="hidden" name="_subject" value="New mentorship intake">
+    <input type="text" name="_gotcha" class="gotcha" tabindex="-1" autocomplete="off">
+
+    <!-- 1. ADMIN -->
+    <section class="section">
+      <div class="sec-head"><span class="sec-num">1</span><span class="sec-title">Admin</span></div>
+      <p class="sec-note">Who you are and where to reach you.</p>
+
+      <div class="grid2">
+        <div class="row">
+          <label for="name">Preferred name</label>
+          <input type="text" id="name" name="name" required autocomplete="given-name">
+        </div>
+        <div class="row">
+          <label for="email">Email for curriculum access</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="row">
+          <label for="country">Country <span class="opt">(for the invoice)</span></label>
+          <input type="text" id="country" name="country" required autocomplete="country-name">
+        </div>
+        <div class="row">
+          <label for="timezone">Timezone, as a city</label>
+          <span class="hint">e.g. Sydney, London, New York</span>
+          <input type="text" id="timezone" name="timezone" required>
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="row">
+          <label for="discord">Discord username</label>
+          <input type="text" id="discord" name="discord_username" required>
+        </div>
+        <div class="row">
+          <label for="github">GitHub username <span class="opt">(or "none yet")</span></label>
+          <input type="text" id="github" name="github_username" required>
+        </div>
+      </div>
+      <div class="row">
+        <label for="phone">Phone <span class="opt">(optional)</span></label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel">
+      </div>
+    </section>
+
+    <!-- 2. BACKGROUND -->
+    <section class="section">
+      <div class="sec-head"><span class="sec-num">2</span><span class="sec-title">Background</span></div>
+      <p class="sec-note">Where you are starting from. The honest version is the useful version.</p>
+
+      <div class="grid2">
+        <div class="row">
+          <label for="years">Years around markets</label>
+          <select id="years" name="years_around_markets" required>
+            <option value="" selected disabled>Select</option>
+            <option>Under 1</option>
+            <option>1 to 3</option>
+            <option>3 to 5</option>
+            <option>5 to 10</option>
+            <option>10+</option>
+          </select>
+        </div>
+        <div class="row">
+          <label for="style">Style so far</label>
+          <select id="style" name="style_so_far" required>
+            <option value="" selected disabled>Select</option>
+            <option>Haven't traded yet</option>
+            <option>Discretionary</option>
+            <option>Copy trading or signals</option>
+            <option>Some systematic</option>
+            <option>Mostly systematic</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <label for="markets">What you trade or have traded</label>
+        <span class="hint">Markets and instruments: e.g. FX majors, US equities, crypto perps, prediction markets</span>
+        <input type="text" id="markets" name="markets_traded" required>
+      </div>
+      <div class="grid2">
+        <div class="row">
+          <label for="coding">Coding level</label>
+          <select id="coding" name="coding_level" required>
+            <option value="" selected disabled>Select</option>
+            <option>None</option>
+            <option>Some scripting</option>
+            <option>Comfortable with Python</option>
+            <option>Use pandas regularly</option>
+            <option>Have shipped production code</option>
+          </select>
+        </div>
+        <div class="row">
+          <label for="stats">Statistics background</label>
+          <select id="stats" name="stats_background" required>
+            <option value="" selected disabled>Select</option>
+            <option>None</option>
+            <option>High school</option>
+            <option>University coursework</option>
+            <option>Working knowledge</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <label for="prior">Prior courses or mentorships, and what happened <span class="opt">(optional)</span></label>
+        <textarea id="prior" name="prior_courses"></textarea>
+      </div>
+    </section>
+
+    <!-- 3. LOGISTICS -->
+    <section class="section">
+      <div class="sec-head"><span class="sec-num">3</span><span class="sec-title">Logistics</span></div>
+      <p class="sec-note">The program is built for 8 to 12 hours a week and three calls a week for six months. This section makes that real.</p>
+
+      <div class="row">
+        <label for="hours">Hours per week you can genuinely commit</label>
+        <select id="hours" name="hours_per_week" required>
+          <option value="" selected disabled>Select</option>
+          <option>Under 5</option>
+          <option>5 to 8</option>
+          <option>8 to 12</option>
+          <option>12+</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="availability">Availability windows for the three weekly calls, in your timezone</label>
+        <span class="hint">e.g. weekday evenings after 6pm, Tuesday and Thursday mornings, weekends anytime</span>
+        <textarea id="availability" name="call_availability" required></textarea>
+      </div>
+      <div class="row">
+        <label for="interruptions">Known interruptions in the next six months <span class="opt">(exams, work travel, family)</span></label>
+        <input type="text" id="interruptions" name="known_interruptions">
+      </div>
+      <div class="row">
+        <label for="employment">Employment context, one line <span class="opt">(helps scheduling, never judged)</span></label>
+        <input type="text" id="employment" name="employment_context">
+      </div>
+    </section>
+
+    <!-- 4. GOALS -->
+    <section class="section">
+      <div class="sec-head"><span class="sec-num">4</span><span class="sec-title">Goals and context</span></div>
+      <p class="sec-note">In your own words. These lines open your kickoff call.</p>
+
+      <div class="row">
+        <label for="goal">What do you want to be true in six months?</label>
+        <textarea id="goal" name="six_month_goal" required></textarea>
+      </div>
+      <div class="row">
+        <label for="why">Why now?</label>
+        <textarea id="why" name="why_now" required></textarea>
+      </div>
+      <div class="grid2">
+        <div class="row">
+          <label for="capital">Capital context <span class="opt">(optional; shapes examples, never advice)</span></label>
+          <select id="capital" name="capital_band">
+            <option value="" selected>Prefer not to say</option>
+            <option>Under 5k</option>
+            <option>5k to 25k</option>
+            <option>25k to 100k</option>
+            <option>100k+</option>
+          </select>
+        </div>
+        <div class="row">
+          <label for="platforms">Broker or platforms currently used</label>
+          <input type="text" id="platforms" name="platforms_used">
+        </div>
+      </div>
+      <div class="row">
+        <label for="source">How did you find JS Financials?</label>
+        <input type="text" id="source" name="how_found" required>
+      </div>
+      <div class="row">
+        <label for="anything">Anything you want me to know <span class="opt">(optional)</span></label>
+        <textarea id="anything" name="anything_else"></textarea>
+      </div>
+    </section>
+
+    <div class="submit-block">
+      <p class="submit-note">Submitting files this form to your mentor. You'll get a confirmation on screen; the contents come up on your kickoff call, not before.</p>
+      <button type="submit">File the intake</button>
+      <p class="foot">JS Financials · Prepared exclusively for mentorship clients · jsfinancials.com.au</p>
+    </div>
+  </form>
+</main>
+
+</body>
+</html>
