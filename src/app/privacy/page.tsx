@@ -25,7 +25,7 @@ export default function PrivacyPolicyPage() {
             </h2>
             <p>
               JS Financials (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) is
-              operated by Jackson Semenas, ABN pending, based in Australia. This
+              operated by Jackson Semenas (ABN 57 226 575 365), based in Australia. This
               Privacy Policy explains how we collect, use, disclose, and protect
               personal information when you visit our website at
               jsfinancials.com.au (the &quot;Site&quot;), use our member portal,
