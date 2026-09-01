@@ -242,6 +242,11 @@ export default function ProductsPage() {
             Frequently Asked Questions
           </h2>
           <FaqAccordion />
+          <p className="text-gray-400 text-xs text-center mt-10 leading-relaxed">
+            Not financial advice. All products are for educational purposes
+            only. Trading involves substantial risk of loss. Past performance is
+            not indicative of future results.
+          </p>
         </div>
       </section>
     </>

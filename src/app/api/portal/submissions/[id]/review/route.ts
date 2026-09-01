@@ -64,7 +64,7 @@ export async function POST(
                 "JS Financials <hello@jsfinancials.com.au>",
               to: clientUser.user.email,
               subject: `Review on: ${submission.title}`,
-              html: `<p>Jackson has reviewed your submission: <strong>${submission.title}</strong></p><p>Log in to your mentorship dashboard to view the feedback.</p>`,
+              html: `<p>Jackson has reviewed your submission: <strong>${submission.title}</strong></p><p>Log in to your mentorship dashboard to view the feedback.</p><div style="margin-top: 30px; padding-top: 15px; border-top: 1px solid #eee;"><p style="color: #aaa; font-size: 11px;">JS Financials | ABN 57 226 575 365 | Canberra, Australia</p><p style="color: #aaa; font-size: 11px; margin-top: 6px;">This is a transactional email related to your JS Financials mentorship. If you believe you received this in error, contact <a href="mailto:hello@jsfinancials.com.au" style="color: #a48420;">hello@jsfinancials.com.au</a>.</p></div>`,
             });
           }
         }

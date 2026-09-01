@@ -227,6 +227,12 @@ export default function DailyReportsPage() {
               See a Sample Report
             </a>
           </div>
+          <p className="text-gray-500 text-sm italic mt-8">
+            Not financial advice. The Daily Macro Reports are educational
+            research summaries. Directional bias scores and risk ratings are not
+            trade signals or recommendations. Past performance is not indicative
+            of future results.
+          </p>
         </div>
       </section>
     </>

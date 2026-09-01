@@ -586,6 +586,11 @@ export default function HomeContent() {
               View All Products
             </Link>
           </div>
+          <p className="text-gray-600 text-xs mt-8 leading-relaxed">
+            Not financial advice. All products are for educational purposes
+            only. Trading involves substantial risk of loss. Past performance is
+            not indicative of future results.
+          </p>
         </motion.div>
       </section>
     </>

@@ -65,7 +65,7 @@ export async function POST(request: Request) {
         from: process.env.RESEND_FROM_EMAIL || "JS Financials <hello@jsfinancials.com.au>",
         to: "jsfinancialsaustralia@gmail.com",
         subject: `New Submission: ${title}`,
-        html: `<p>A mentorship client has submitted new work: <strong>${title}</strong></p><p>${description || "No description provided."}</p>`,
+        html: `<p>A mentorship client has submitted new work: <strong>${title}</strong></p><p>${description || "No description provided."}</p><div style="margin-top: 30px; padding-top: 15px; border-top: 1px solid #eee;"><p style="color: #aaa; font-size: 11px;">JS Financials | ABN 57 226 575 365 | Canberra, Australia</p></div>`,
       });
     }
   } catch {

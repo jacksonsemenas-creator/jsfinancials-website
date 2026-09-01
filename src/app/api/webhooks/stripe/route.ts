@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
 import { Resend } from "resend";
 import { createClient } from "@supabase/supabase-js";
+import { EMAIL_FOOTER_HTML } from "@/lib/email-footer";
 
 export const dynamic = "force-dynamic";
 
@@ -70,13 +71,7 @@ function getMacroCourseEmail(name: string) {
           <p style="color: #333; font-size: 16px; line-height: 1.6;">
             If you have any questions as you work through the material, reach out directly via Instagram <a href="https://www.instagram.com/js_financials" style="color: #a48420;">@js_financials</a> or reply to this email.
           </p>
-          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-            <p style="color: #888; font-size: 13px;">
-              Jackson Semenas<br/>
-              JS Financials<br/>
-              <a href="https://jsfinancials.com.au" style="color: #a48420;">jsfinancials.com.au</a>
-            </p>
-          </div>
+          ${EMAIL_FOOTER_HTML}
         </div>
       </div>
     `,
@@ -115,13 +110,7 @@ function getDailyReportsEmail(name: string) {
           <p style="color: #333; font-size: 16px; line-height: 1.6;">
             If you have any questions, reach out via Instagram <a href="https://www.instagram.com/js_financials" style="color: #a48420;">@js_financials</a> or reply to this email.
           </p>
-          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-            <p style="color: #888; font-size: 13px;">
-              Jackson Semenas<br/>
-              JS Financials<br/>
-              <a href="https://jsfinancials.com.au" style="color: #a48420;">jsfinancials.com.au</a>
-            </p>
-          </div>
+          ${EMAIL_FOOTER_HTML}
         </div>
       </div>
     `,
@@ -158,13 +147,7 @@ function getMentorshipEmail(name: string) {
           <p style="color: #333; font-size: 16px; line-height: 1.6;">
             If you have any immediate questions, you can reach me directly via phone (you'll receive my number in our first session), Instagram <a href="https://www.instagram.com/js_financials" style="color: #a48420;">@js_financials</a>, or by replying to this email.
           </p>
-          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-            <p style="color: #888; font-size: 13px;">
-              Jackson Semenas<br/>
-              JS Financials<br/>
-              <a href="https://jsfinancials.com.au" style="color: #a48420;">jsfinancials.com.au</a>
-            </p>
-          </div>
+          ${EMAIL_FOOTER_HTML}
         </div>
       </div>
     `,
@@ -191,13 +174,7 @@ function getPredictionMarketsEmail(name: string) {
           <p style="color: #333; font-size: 16px; line-height: 1.6;">
             If you have any questions, reach out via Instagram <a href="https://www.instagram.com/js_financials" style="color: #a48420;">@js_financials</a> or reply to this email.
           </p>
-          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-            <p style="color: #888; font-size: 13px;">
-              Jackson Semenas<br/>
-              JS Financials<br/>
-              <a href="https://jsfinancials.com.au" style="color: #a48420;">jsfinancials.com.au</a>
-            </p>
-          </div>
+          ${EMAIL_FOOTER_HTML}
         </div>
       </div>
     `,

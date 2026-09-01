@@ -86,6 +86,9 @@ export default function Footer() {
                 { href: "/research", label: "Research" },
                 { href: "/contact", label: "Contact" },
                 { href: "/privacy", label: "Privacy Policy" },
+                { href: "/terms", label: "Terms of Service" },
+                { href: "/refunds", label: "Refund Policy" },
+                { href: "/disclaimer", label: "Financial Disclaimer" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -126,14 +129,25 @@ export default function Footer() {
             >
               Trade on Kalshi
             </a>
-            <p className="text-[11px] text-gray-600 mt-1">
-              Affiliate link
+            <p className="text-gray-500 text-xs mt-1">
+              Affiliate link. I may earn a commission at no extra cost to you.
             </p>
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-8 pt-8 text-sm text-center">
-          &copy; {new Date().getFullYear()} JS Financials. All rights reserved.
+        <div className="border-t border-white/10 mt-8 pt-8 text-center space-y-2">
+          <p className="text-gray-600 text-xs leading-relaxed max-w-2xl mx-auto">
+            JS Financials provides financial education only. Nothing on this
+            site constitutes personal financial advice, investment advice, or a
+            recommendation to trade. Trading involves substantial risk of loss.
+            Past performance is not indicative of future results.{" "}
+            <Link href="/disclaimer" className="text-gray-500 hover:text-gold transition-colors">
+              Full disclaimer
+            </Link>
+          </p>
+          <p className="text-sm text-gray-500">
+            &copy; {new Date().getFullYear()} JS Financials. ABN 57 226 575 365. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
