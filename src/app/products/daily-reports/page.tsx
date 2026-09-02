@@ -82,7 +82,7 @@ export default function DailyReportsPage() {
               indices, and cryptocurrencies. Delivered daily at 10:00 PM AEDT,
               seven days a week.
             </p>
-            <div className="flex flex-wrap items-center gap-6 mb-8">
+            <div className="flex flex-wrap items-center gap-6 mb-4">
               <div>
                 <span className="text-4xl font-bold text-white">$29.99</span>
                 <span className="text-gray-400 ml-2">USD / month</span>
@@ -91,14 +91,20 @@ export default function DailyReportsPage() {
                 or $269.99 / year (save 25%)
               </div>
             </div>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-medium mb-8">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              7-day free trial. Cancel anytime.
+            </div>
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://buy.stripe.com/3cI00l9ezasz0T6gAc6J205"
+                href="https://buy.stripe.com/9B6dRb0I330759mgAc6J20b"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-8 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors"
               >
-                Subscribe Now
+                Start Free Trial
               </a>
               <a
                 href="/files/sample-daily-report.pdf"
@@ -173,9 +179,9 @@ export default function DailyReportsPage() {
                   "Sent to your inbox at 10:00 PM AEDT every day, seven days a week. Be prepared before the session opens.",
               },
               {
-                title: "Cancel Anytime",
+                title: "7-Day Free Trial",
                 description:
-                  "No lock-in commitment. Cancel your subscription at any time with no questions asked.",
+                  "Try the full report for 7 days, no charge. Cancel anytime during the trial and pay nothing.",
               },
               {
                 title: "Professional Format",
@@ -203,20 +209,20 @@ export default function DailyReportsPage() {
       <section className="bg-navy py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-heading text-3xl font-bold text-white mb-4">
-            Start Your Edge Tomorrow
+            Try It Free for 7 Days
           </h2>
           <p className="text-gray-300 mb-8">
-            Get your first report tonight. Institutional-grade macro analysis
-            delivered daily for less than the cost of a coffee.
+            Get your first report tonight. 7 days free, then $29.99/mo. Cancel
+            anytime during the trial and pay nothing.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://buy.stripe.com/3cI00l9ezasz0T6gAc6J205"
+              href="https://buy.stripe.com/9B6dRb0I330759mgAc6J20b"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-3 bg-gold hover:bg-gold-light text-navy font-semibold rounded-lg transition-colors"
             >
-              Subscribe — $29.99/mo
+              Start Free Trial
             </a>
             <a
               href="/files/sample-daily-report.pdf"

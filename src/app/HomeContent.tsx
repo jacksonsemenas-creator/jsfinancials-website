@@ -108,13 +108,13 @@ const products = [
     description:
       "Institutional-quality daily macro briefings covering global markets, economic data releases, and actionable trading insights.",
     features: [
+      "7-day free trial",
       "Daily pre-market analysis",
-      "Key economic data breakdowns",
       "Cross-asset positioning insights",
       "Central bank watch & rate expectations",
     ],
     href: "/products/daily-reports",
-    cta: "Subscribe",
+    cta: "Start Free Trial",
   },
   {
     title: "Macroeconomics for Financial Markets & Trading",

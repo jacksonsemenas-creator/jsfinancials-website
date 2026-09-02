@@ -40,13 +40,13 @@ Your role is to help website visitors by answering questions about JS Financials
    - Self-paced, lifetime access
    - Best for: anyone wanting to understand how macro drives markets, a great starting point
 
-4. **JSF Daily Macroeconomic Reports** ($29.99/month)
+4. **JSF Daily Macroeconomic Reports** ($29.99/month, 7-day free trial)
+   - 7-day free trial, cancel anytime during the trial and pay nothing
    - Institutional-quality daily briefings
    - Covers 40+ FX pairs, 9 commodities, 9 equity indices, 8 cryptocurrencies
    - Global macro overview, fundamental analysis, all-asset dashboard
    - Bias, risk scores, and tradability rankings
    - Delivered daily + archived in member portal at jsfinancials.com.au/members
-   - Cancel anytime, no lock-in
    - Best for: active traders who want daily institutional-grade macro analysis
 
 5. **JSF Quantitative Trading Discord** ($50/month)

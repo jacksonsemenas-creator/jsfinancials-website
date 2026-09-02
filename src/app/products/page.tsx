@@ -73,17 +73,17 @@ const products = [
     period: "USD / month",
     type: "Subscription",
     description:
-      "Institutional-quality daily briefings covering global macro conditions, key data releases, and actionable insights. Know what's moving markets before you trade.",
+      "Institutional-quality daily briefings covering global macro conditions, key data releases, and actionable insights. 7-day free trial included.",
     features: [
+      "7-day free trial, cancel anytime",
       "Daily pre-market macro analysis",
-      "Key economic data release breakdowns",
       "Cross-asset positioning & flow insights",
       "Central bank watch & rate path expectations",
-      "Weekly deep-dive research notes",
+      "All-asset dashboard with bias and risk scores",
       "Delivered to your inbox every day",
     ],
     href: "/products/daily-reports",
-    cta: "Subscribe",
+    cta: "Start Free Trial",
     highlight: false,
   },
   {
