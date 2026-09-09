@@ -34,6 +34,7 @@ export default async function ReportsPage() {
     supabase
       .from("daily_reports")
       .select("id, title, report_date, file_path")
+      .eq("status", "published")
       .order("report_date", { ascending: false }),
     supabase
       .from("entitlements")
