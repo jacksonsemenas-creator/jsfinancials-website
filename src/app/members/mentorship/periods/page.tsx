@@ -41,6 +41,12 @@ export default async function PeriodsPage() {
     ? accessIds.has(syllabus.id) || profile.role === "admin"
     : false;
 
+  // A period_doc with no period number, or one outside 1 to 12, belongs to no
+  // card in the grid below and would otherwise render nowhere at all.
+  const referenceDocs = (periodDocs ?? [])
+    .filter((d) => d.period === null || d.period < 0 || d.period > 12)
+    .filter((d) => accessIds.has(d.id) || profile.role === "admin");
+
   const periods = Array.from({ length: 12 }, (_, i) => {
     const num = i + 1;
     const doc = periodDocs?.find((d) => d.period === num);
@@ -76,6 +82,30 @@ export default async function PeriodsPage() {
             </p>
           )}
         </Link>
+      )}
+
+      {referenceDocs.length > 0 && (
+        <div className="mt-4 mb-8">
+          <h2 className="text-xs text-gray-500 uppercase tracking-widest mb-3">
+            Reference
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {referenceDocs.map((doc) => (
+              <Link
+                key={doc.id}
+                href={`/members/mentorship/periods/${doc.id}`}
+                className="block border border-gold/20 rounded-xl p-5 bg-navy-light hover:border-gold/50 transition-colors group"
+              >
+                <p className="text-white font-heading font-semibold text-sm group-hover:text-gold transition-colors">
+                  {doc.title}
+                </p>
+                {doc.description && (
+                  <p className="text-gray-500 text-xs mt-1.5">{doc.description}</p>
+                )}
+              </Link>
+            ))}
+          </div>
+        </div>
       )}
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
